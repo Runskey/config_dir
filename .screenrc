@@ -1,0 +1,15 @@
+# Bind F11 and F12 (NOT F1 and F2) to previous and next screen window
+bindkey -k F1 prev
+bindkey -k F2 next
+
+startup_message off
+vbell           off
+autodetach      on
+nonblock        on
+altscreen       on # allow display restore when editor quits
+defscrollback   1024 
+attrcolor       b ".I"
+
+hardstatus      on
+hardstatus      alwayslastline
+hardstatus      string '%{= kw}[%{r}%c%{w}]%{w}[ %{= kb}%H%{= kw} ][%-w%{= BW}%50>%n %t%{-}%+w%<]%{w}'

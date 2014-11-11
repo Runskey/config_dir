@@ -1,0 +1,28 @@
+[user]
+	name = Lin Yang
+	email = liny@outlook.com
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+	d = difftool
+	show-graph = log --graph --abbrev-commit --pretty=oneline
+;[core]
+	;editor = gvim -f
+;[merge]
+	;tool = gvimdiff
+[diff]
+  tool = gvimdiff
+;[difftool]
+	;prompt = false
+[color]
+	ui = auto
+[http]
+  proxy = http://proxy-prc.intel.com:911 for github.com
+[core]
+	autocrlf = input
+	safecrlf = false
