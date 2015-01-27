@@ -95,9 +95,7 @@ endif
 "let g:solarized_termcolors=256
 "let g:solarized_termtrans=1
 "colorscheme mac_classic_alt
-"colorscheme cascadia
-colorscheme pencil
-set background=light
+colorscheme cascadia
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
 let g:pencil_neutral_headings = 1   " 0=blue (def), 1=normal
 let g:pencil_terminal_italics = 1

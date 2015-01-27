@@ -11,14 +11,14 @@
   dump = cat-file -p
 	d = difftool
 	show-graph = log --graph --abbrev-commit --pretty=oneline
-;[core]
-	;editor = gvim -f
-;[merge]
-	;tool = gvimdiff
+[core]
+	editor = gvim -f
+[merge]
+	tool = gvimdiff
 [diff]
   tool = gvimdiff
-;[difftool]
-	;prompt = false
+[difftool]
+	prompt = false
 [color]
 	ui = auto
 [http]

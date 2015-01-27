@@ -231,5 +231,7 @@ export LANG=en
 alias ilab='ssh -X lyang3@10.239.20.120'
 alias liaohe='ssh -X liny@172.16.126.60'
 alias 8l07='ssh -X lin.yang@172.16.124.117'
+alias sonblade='ssh -X yanglin@172.16.126.54'
+
 
 export EDITOR=/usr/bin/vim

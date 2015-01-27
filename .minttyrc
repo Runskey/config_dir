@@ -23,3 +23,5 @@ BoldCyan=57,173,173
 White=211,208,200
 BoldWhite=242,240,236
 Columns=120
+Locale=C
+Charset=GBK
