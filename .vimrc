@@ -66,7 +66,8 @@ else
 endif
 
 if has("mac")
-  set guifont=Consolas:h13
+  set guifont=Consolas:h16
+  colorscheme github 
 else
   set guifont=Consolas\ 13
 endif
