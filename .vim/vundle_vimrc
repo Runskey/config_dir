@@ -1,3 +1,6 @@
+" make sure Vundle is installed correctly:
+"$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -26,11 +29,14 @@ Plugin 'snipMate'
 Plugin 'bufexplorer.zip'
 Plugin 'sessionman.vim'
 Plugin 'ctags.vim'
+Plugin 'ctrlp.vim'
 Plugin 'cscope.vim'
 Plugin 'a.vim'
+Plugin 'EasyMotion'
 Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
 Plugin 'SuperTab'
+Plugin 'matchit.zip'
 Plugin 'taglist.vim'
 Plugin 'YankRing.vim'
 Plugin 'SudoEdit.vim'

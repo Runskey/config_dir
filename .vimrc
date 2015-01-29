@@ -145,7 +145,7 @@ nmap <Leader>M <Plug>MarkToggle
 nmap <Leader>N <Plug>MarkAllClear
 
 " NerdTree
-"nnoremap <F12> :NERDTreeToggle<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
 
 " Narrow Regin Configuration
 "let g:nrrw_rgn_vert = 1      " open narrow region vertically
