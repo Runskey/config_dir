@@ -65,7 +65,12 @@ else
   colorscheme solarized
 endif
 
-set guifont=Consolas\ 13
+if has("mac")
+  set guifont=Consolas:h13
+else
+  set guifont=Consolas\ 13
+endif
+
 set guitablabel=%t
 set fileformat=unix
 set fileformats=unix,dos,mac          "Favorite filetypes
@@ -169,7 +174,11 @@ let g:snips_author = 'Lin Yang'
 """""""""     CSCOPE + CTAGS + Taglist              """"""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tags=tags;
-let Tlist_Ctags_Cmd='/usr/bin/ctags'  " Specifies the path to the ctags utility.
+if has("mac")
+  let Tlist_Ctags_Cmd='/opt/local/bin/ctags'  " Specifies the path to the ctags utility.
+else
+  let Tlist_Ctags_Cmd='/usr/bin/ctags'  " Specifies the path to the ctags utility.
+endif
 let Tlist_Show_One_File=1           " Display the tags for only the current active buffer
 let Tlist_Use_Right_Window=1        " Split taglist window on the rightmost side
 let Tlist_Inc_Winwidth=0            " Prevent window size change when taglist window is closed
@@ -192,7 +201,11 @@ map       <M-k>       <ESC>:ptprevious<CR>
 map       <leader>tg  :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 if has("cscope")
- set cscopeprg=/usr/bin/cscope.exe
+  if has("mac")
+    set cscopeprg=/opt/local/bin/cscope
+  else
+    set cscopeprg=/usr/bin/cscope.exe
+  endif
  set cscopequickfix=s-,c-,d-,i-,t-,e-
  set csto=0    " cscope databases are searched first, followed by tag files.
  set cscopetag " Search cscope databases instead of the default tag behavior
