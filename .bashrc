@@ -23,6 +23,15 @@
 
 # User dependent .bashrc file
 
+# Need detect OS for customized configuration
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+  platform='mac'
+else
+  platform='linux'
+fi
+
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
@@ -107,10 +116,15 @@ alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'                 # classify files in colour
+if [[ $platform == 'mac' ]]; then
+  alias ls='ls -hF'                             # classify files in colour
+  alias ll='ls -lh'                             # long list
+else
+  alias ls='ls -hF --color=tty'                 # classify files in colour
+  alias ll='ls -l'                              # long list
+fi
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 alias l='ls -CF'                              #
 
@@ -197,41 +211,51 @@ fi
 # 
 # alias cd=cd_func
 
-#export FRAMEWORK_3G=/d/picochip/project/Transcede/codeTree/3G-WCDMA/framework_3g
-#export SIMULATION_LIB=/d/picochip/project/Transcede/codeTree/3G-WCDMA/simulation_lib
-export TESTSUITE_ROOT=${FRAMEWORK_3G}/test_suite
-export SIMULATION_LIB=/cygdrive/c/work/src_git_mindspeed/simulation_lib
-#export PICO_DIR_PC82XX=/d/picochip/project/Transcede/codeTree/Systems
-#export PICOSYSTEMS=/d/picochip/project/Transcede/codeTree/Systems
+if [[ $platform == 'linux' ]]; then
+  #export FRAMEWORK_3G=/d/picochip/project/Transcede/codeTree/3G-WCDMA/framework_3g
+  #export SIMULATION_LIB=/d/picochip/project/Transcede/codeTree/3G-WCDMA/simulation_lib
+  export TESTSUITE_ROOT=${FRAMEWORK_3G}/test_suite
+  export SIMULATION_LIB=/cygdrive/c/work/src_git_mindspeed/simulation_lib
+  #export PICO_DIR_PC82XX=/d/picochip/project/Transcede/codeTree/Systems
+  #export PICOSYSTEMS=/d/picochip/project/Transcede/codeTree/Systems
 
-export CVSROOT=:pserver:liny@cvs2.picochip.com:/export/home/cvsroot
+  # if you want to run STM as well, you need to source STM setup file
+  #    ${PICOSYSTEMS}/wcdma-systemTest/systemTest_bashrc
+  # the following command will setup TCLLIBPATH as below so that all ATA libraries are available to you:
+  #    export TCLLIBPATH="${TCLLIBPATH} ${FRAMEWORK_3G}/tools/ata"
+  # depending on your setup, you might have to run the following to convert setup file to unix format
+  #    dos2unix $FRAMEWORK_3G/tools/ata/ata_bashrc
+  #    source ${FRAMEWORK_3G}/tools/ata/ata_bashrc
 
- # if you want to run STM as well, you need to source STM setup file
- #    ${PICOSYSTEMS}/wcdma-systemTest/systemTest_bashrc
- # the following command will setup TCLLIBPATH as below so that all ATA libraries are available to you:
- #    export TCLLIBPATH="${TCLLIBPATH} ${FRAMEWORK_3G}/tools/ata"
- # depending on your setup, you might have to run the following to convert setup file to unix format
- #    dos2unix $FRAMEWORK_3G/tools/ata/ata_bashrc
- #    source ${FRAMEWORK_3G}/tools/ata/ata_bashrc
- 
-#eval `dircolors ~/.dircolors/dircolors.ansi-universal`
-export TERM=cygwin
+  export CVSROOT=:pserver:liny@cvs2.picochip.com:/export/home/cvsroot
 
-export CSCOPE_DB="/home/lyang3/.vim/cscope.out"
+  #eval `dircolors ~/.dircolors/dircolors.ansi-universal`
+  export TERM=cygwin
+
+  export http_proxy=http://proxy-prc.intel.com:911
+  export PATH=~/bin/arm-2010.09/bin:/cygdrive/c/Java/jdk1.7.0_67/bin:$PATH
+
+  export LANG=en
+
+  alias ilab='ssh -X lyang3@10.239.20.120'
+  alias liaohe='ssh -X liny@172.16.126.60'
+  alias 8l07='ssh -X lin.yang@172.16.124.117'
+  alias sonblade='ssh -X yanglin@172.16.126.54'
+
+  export EDITOR=/usr/bin/vim
+
+  export CSCOPE_DB="/home/lyang3/.vim/cscope.out"
+
+elif [[ $platform == 'mac' ]]; then
+  echo "no special configuration for $platform"
+
+else
+  echo "no special configuration for $platform"
+
+fi
+
 export DISPLAY=":0.0"
 
 
-alias genTags=~/.vim/genTags.sh
-export http_proxy=http://proxy-prc.intel.com:911
-
-export PATH=~/bin/arm-2010.09/bin:/cygdrive/c/Java/jdk1.7.0_67/bin:$PATH
-
-export LANG=en
-
-alias ilab='ssh -X lyang3@10.239.20.120'
-alias liaohe='ssh -X liny@172.16.126.60'
-alias 8l07='ssh -X lin.yang@172.16.124.117'
-alias sonblade='ssh -X yanglin@172.16.126.54'
 
 
-export EDITOR=/usr/bin/vim
