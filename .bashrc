@@ -24,12 +24,14 @@
 # User dependent .bashrc file
 
 # Need detect OS for customized configuration
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
-  platform='mac'
+myconfig_platform='unknown'
+myconfig_os=`uname -o`
+if [[ "$myconfig_os" == 'Darwin' ]]; then
+  myconfig_platform='mac'
+elif [[ "$myconfig_os" == 'Cygwin' ]]; then
+  myconfig_platform='cygwin'
 else
-  platform='linux'
+  echo "Can not recognize OS"
 fi
 
 # If not running interactively, don't do anything
@@ -116,7 +118,7 @@ alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Some shortcuts for different directory listings
-if [[ $platform == 'mac' ]]; then
+if [[ $myconfig_platform == 'mac' ]]; then
   alias ls='ls -hF'                             # classify files in colour
   alias ll='ls -lh'                             # long list
 else
@@ -211,7 +213,7 @@ fi
 # 
 # alias cd=cd_func
 
-if [[ $platform == 'linux' ]]; then
+if [[ $myconfig_platform == 'cygwin' ]]; then
   #export FRAMEWORK_3G=/d/picochip/project/Transcede/codeTree/3G-WCDMA/framework_3g
   #export SIMULATION_LIB=/d/picochip/project/Transcede/codeTree/3G-WCDMA/simulation_lib
   export TESTSUITE_ROOT=${FRAMEWORK_3G}/test_suite
@@ -246,16 +248,12 @@ if [[ $platform == 'linux' ]]; then
 
   export CSCOPE_DB="/home/lyang3/.vim/cscope.out"
 
-elif [[ $platform == 'mac' ]]; then
-  echo "no special configuration for $platform"
+elif [[ $myconfig_platform == 'mac' ]]; then
+  echo "no special configuration for $myconfig_platform"
 
 else
-  echo "no special configuration for $platform"
+  echo "no special configuration for $myconfig_platform"
 
 fi
 
 export DISPLAY=":0.0"
-
-
-
-
