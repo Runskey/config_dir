@@ -130,11 +130,11 @@ set laststatus=2                      "always show status line
 " A plain & simple example
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  " format the status line
 
-let g:yankring_history_dir = '$VIM'
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """     plugin setting                                                      """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:yankring_history_dir = '$VIM'
 
 " Configures for ShowMarks plugin
 let showmarks_include =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
