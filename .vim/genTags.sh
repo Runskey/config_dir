@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#! /bin/sh
 
 #path_pico="/home/lyang3/systems/products/lib"
 #path_transcede="/home/lyang3/codeTree/framework_3g /home/lyang3/codeTree/fix_simulator /home/lyang3/codeTree/simulation_lib"

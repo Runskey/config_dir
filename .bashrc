@@ -31,7 +31,7 @@ if [[ "$myconfig_os" == 'Darwin' ]]; then
 elif [[ "$myconfig_os" == 'Cygwin' ]]; then
   myconfig_platform='cygwin'
 else
-  echo "Can not recognize OS"
+  echo "Can not recognize the platform."
 fi
 
 # If not running interactively, don't do anything

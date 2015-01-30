@@ -52,7 +52,7 @@ set cmdheight=1                       "The commandbar is 2 high
 set fillchars=vert:\ ,stl:\ ,stlnc:\  "show space at split line
 set showmatch                         "show matching bracets
 set matchtime=5                       "How many tenths of a second to blink
-set cursorline                        "highlight current line
+"set cursorline                        "highlight current line
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 set guioptions=
 
@@ -60,17 +60,19 @@ source ~/.vim/vundle_vimrc
 
 if has("gui_running")
   colorscheme muon 
+  if has("mac")
+    set guifont=Consolas:h16
+    colorscheme github 
+  else
+    set guifont=Consolas\ 13
+  endif
+  nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
+  nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
   set background=dark
   colorscheme solarized
 endif
 
-if has("mac")
-  set guifont=Consolas:h16
-  colorscheme github 
-else
-  set guifont=Consolas\ 13
-endif
 
 set guitablabel=%t
 set fileformat=unix
@@ -247,7 +249,3 @@ nmap <leader><leader>ie :scs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <leader><leader>if :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <leader><leader>ii :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <leader><leader>id :scs find d <C-R>=expand("<cword>")<CR><CR>
-
-nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
-nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
-
