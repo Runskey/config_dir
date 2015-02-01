@@ -37,6 +37,8 @@ fi
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
+export PATH=~/usrbin:$PATH
+
 # Shell Options
 #
 # See man bash for more options...
