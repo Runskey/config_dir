@@ -25,13 +25,13 @@
 
 # Need detect OS for customized configuration
 myconfig_platform='unknown'
-myconfig_os=`uname -o`
-if [[ "$myconfig_os" == 'Darwin' ]]; then
+myconfig_os=`uname`
+if case ${myconfig_os} in *"Darwin"*) true;; *) false;; esac; then
   myconfig_platform='mac'
-elif [[ "$myconfig_os" == 'Cygwin' ]]; then
+elif case ${myconfig_os} in *"Cygwin"*) true;; *) false;; esac; then
   myconfig_platform='cygwin'
 else
-  echo "Can not recognize the platform."
+  echo "Cannot recognize current OS"
 fi
 
 # If not running interactively, don't do anything
@@ -119,7 +119,7 @@ alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Some shortcuts for different directory listings
 if [[ $myconfig_platform == 'mac' ]]; then
-  alias ls='ls -hF'                             # classify files in colour
+  alias ls='ls -hFG'                            # classify files in colour
   alias ll='ls -lh'                             # long list
 else
   alias ls='ls -hF --color=tty'                 # classify files in colour
@@ -250,6 +250,7 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
 
 elif [[ $myconfig_platform == 'mac' ]]; then
   echo "no special configuration for $myconfig_platform"
+  eval `dircolors ~/.dircolors/dircolors.ansi-universal`
 
 else
   echo "no special configuration for $myconfig_platform"
