@@ -59,10 +59,10 @@ set guioptions=
 source ~/.vim/vundle_vimrc
 
 if has("gui_running")
-  colorscheme muon 
+  "colorscheme muon 
+  colorscheme github 
   if has("mac")
     set guifont=Consolas:h16
-    colorscheme github 
   else
     set guifont=Consolas\ 13
   endif
