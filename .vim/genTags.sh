@@ -18,31 +18,33 @@
 #cscope -bkq -i ~/.vim/cscope.files 
 
 
-if [ $1 == 'pico' ]
+if [[ $1 == 'pico' ]]
 then
   directory="/home/lyang3/systems/products/lib"
-  file_exclude="verif|CVS"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
-elif [ $1 == 't' ]
+elif [[ $1 == 't' ]]
 then
   directory="/home/lyang3/work/src_git_mindspeed/framework_3g /home/lyang3/work/src_git_mindspeed/fix_simulator /home/lyang3/work/src_git_mindspeed/simulation_lib"
-#  file_exclude="_tb|tb_|test|ulceva1|crptb|verif"
-  file_exclude="_tb|tb_|testcase|UnitLevelTest|ulceva1|crptb|verif"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
-elif [ $1 == 'nmm' ]
+elif [[ $1 == 'nmm' ]]
 then
   directory="/home/lyang3/work/src_songit_lte/lte_t2k_meta"
-  file_exclude="verif|CVS"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
-elif [ $1 == 'son' ]
+elif [[ $1 == 'son' ]]
 then
-  directory="/home/lyang3/work/src_git_son"
-  file_exclude="verif|CVS"
+  if [[ $myconfig_platform == 'mac' ]]
+  then
+    directory="/Users/Lin/Cloud/cloudFolder/src/son_src"
+  elif [[ $myconfig_platform == 'cygwin' ]]
+  then
+    directory="/home/lyang3/work/src_git_son"
+  fi
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
 else
   exit
 fi
 
+file_exclude="verif|CVS"
 echo "Now generate tags for $1 project!"
 find $directory -type f $file_type | grep -i -v -E $file_exclude > ~/.vim/cscope_$1.files
 

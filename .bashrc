@@ -24,12 +24,12 @@
 # User dependent .bashrc file
 
 # Need detect OS for customized configuration
-myconfig_platform='unknown'
-myconfig_os=`uname`
+export myconfig_platform='unknown'
+export myconfig_os=`uname`
 if case ${myconfig_os} in *"Darwin"*) true;; *) false;; esac; then
-  myconfig_platform='mac'
+  export myconfig_platform='mac'
 elif case ${myconfig_os} in *"CYGWIN"*) true;; *) false;; esac; then
-  myconfig_platform='cygwin'
+  export myconfig_platform='cygwin'
 else
   echo "Cannot recognize current OS"
 fi
