@@ -28,7 +28,7 @@ myconfig_platform='unknown'
 myconfig_os=`uname`
 if case ${myconfig_os} in *"Darwin"*) true;; *) false;; esac; then
   myconfig_platform='mac'
-elif case ${myconfig_os} in *"Cygwin"*) true;; *) false;; esac; then
+elif case ${myconfig_os} in *"CYGWIN"*) true;; *) false;; esac; then
   myconfig_platform='cygwin'
 else
   echo "Cannot recognize current OS"
@@ -252,7 +252,8 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
 
 elif [[ $myconfig_platform == 'mac' ]]; then
   echo "no special configuration for $myconfig_platform"
-  eval `dircolors ~/.dircolors/dircolors.ansi-universal`
+  #eval `dircolors ~/.dircolors/dircolors.ansi-universal`
+  export CSCOPE_DB="/Users/Lin/.vim/cscope.out"
 
 else
   echo "no special configuration for $myconfig_platform"
