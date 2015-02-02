@@ -26,3 +26,5 @@
 [core]
 	autocrlf = input
 	safecrlf = false
+[push]
+	default = matching
