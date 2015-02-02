@@ -16,7 +16,6 @@
 .smex-items
 .ssh/known_hosts
 .ssh2/
-.vim/bundle
 .vim/cscope*
 .viminfo
 .w3m/
@@ -76,3 +75,4 @@ Sites/
 VirtualMachine/
 comic/
 project/
+.vim/bundle 
