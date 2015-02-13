@@ -55,6 +55,7 @@ Plugin 'Atom'
 Plugin 'Gravity'
 Plugin 'github-theme'
 Plugin 'xemacs-colorscheme'
+Plugin 'thinkpad.vim'
 
 "" Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
