@@ -1,5 +1,5 @@
 " make sure Vundle is installed correctly:
-"$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/Vundle.vim
+"$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -51,9 +51,7 @@ Plugin 'FencView.vim'
 Plugin 'Rainbow-Parenthsis-Bundle'
 Plugin 'Shell.vim'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
 
 "Plugin 'Solarized'

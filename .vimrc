@@ -59,7 +59,7 @@ set guioptions=
 source ~/.vim/vundle_vimrc
 
 if has("gui_running")
-  colorscheme muon 
+  "colorscheme muon 
   colorscheme gravity
   if has("mac")
     set guifont=Consolas:h16
@@ -70,7 +70,6 @@ if has("gui_running")
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
   set background=dark
-  colorscheme solarized
 endif
 
 
