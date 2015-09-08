@@ -32,7 +32,7 @@ then
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'ab' ]]
 then
-  directory="/home/lyang3/work/isg_cid-wireless_lte /home/lyang3/work/temp_tieto_stack/isg_cid-wireless_l2_l3"
+  directory="/home/lyang3/work/isg_cid-wireless_lte /home/lyang3/work/isg_cid-wireless_l2_l3"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'nmm' ]]
 then
@@ -52,7 +52,7 @@ else
   exit
 fi
 
-file_exclude="verif|CVS|test|Test"
+file_exclude="verif|CVS|test|Test|cnsim"
 echo "Now generate tags for $1 project!"
 find $directory -type f $file_type | grep -i -v -E $file_exclude > ~/.vim/cscope_$1.files
 

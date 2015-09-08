@@ -245,7 +245,11 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
   alias liaohe='ssh -X liny@172.16.126.60'
   alias 8l07='ssh -X lin.yang@172.16.124.117'
   alias sonblade='ssh -X yanglin@172.16.126.54'
-  alias ab2='ssh -X root@172.16.124.67'
+
+  alias enbs='ssh -Y root@172.16.124.67'
+  alias epcs='ssh -Y root@172.16.124.115'
+  alias hefanepc='ssh -Y root@10.240.224.180'
+  alias hefanenb='ssh -Y root@10.240.224.166'
 
   export EDITOR=/usr/bin/vim
 

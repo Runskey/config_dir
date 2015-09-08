@@ -5,13 +5,15 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/Vundle.vim
+"set rtp+=~/.vim/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 call vundle#begin('~/.vim/bundle')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " ==================================================== 
 
@@ -19,7 +21,7 @@ Plugin 'gmarik/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'gregsexton/Muon'
-Plugin 'Mizuchi/STL-Syntax'
+Plugin 'vim-scripts/STL-Syntax'
 "Plugin 'vim-scripts/Mark'
 "Plugin 'yuratomo/w3m.vim'
 "Plugin 'godlygeek/tabular'
@@ -28,7 +30,6 @@ Plugin 'Mizuchi/STL-Syntax'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'showmarks'
 Plugin 'NrrwRgn'
-Plugin 'snipMate'
 Plugin 'bufexplorer.zip'
 Plugin 'sessionman.vim'
 Plugin 'ctags.vim'
@@ -38,7 +39,7 @@ Plugin 'a.vim'
 Plugin 'EasyMotion'
 Plugin 'The-NERD-tree'
 Plugin 'The-NERD-Commenter'
-Plugin 'SuperTab'
+Plugin 'ervandew/supertab'
 Plugin 'Mark'
 Plugin 'matchit.zip'
 Plugin 'taglist.vim'
@@ -50,12 +51,17 @@ Plugin 'FencView.vim'
 Plugin 'Rainbow-Parenthsis-Bundle'
 Plugin 'Shell.vim'
 
-Plugin 'Solarized'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+
+"Plugin 'Solarized'
 Plugin 'Atom'
 Plugin 'Gravity'
-Plugin 'github-theme'
-Plugin 'xemacs-colorscheme'
-Plugin 'thinkpad.vim'
+"Plugin 'github-theme'
+"Plugin 'xemacs-colorscheme'
+"Plugin 'thinkpad.vim'
 
 "" Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
