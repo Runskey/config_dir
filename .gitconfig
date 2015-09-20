@@ -24,8 +24,9 @@
 #[http]
 #  proxy = http://proxy-prc.intel.com:911 for github.com
 [core]
-	autocrlf = input
+	autocrlf = false
 	safecrlf = false
+	filemode = false
 [push]
 	default = matching
 [filter "media"]

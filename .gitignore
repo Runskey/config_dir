@@ -60,6 +60,7 @@ work
 .subversion/
 .swt/
 .vinevncauth
+.octave_hist
 Applications/
 Cloud/
 Cloud_backup/
@@ -76,3 +77,4 @@ VirtualMachine/
 comic/
 project/
 .vim/bundle/
+cloud_src/

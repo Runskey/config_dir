@@ -26,6 +26,14 @@ elif [[ $1 == 't' ]]
 then
   directory="/home/lyang3/work/src_git_mindspeed/framework_3g /home/lyang3/work/src_git_mindspeed/fix_simulator /home/lyang3/work/src_git_mindspeed/simulation_lib"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
+elif [[ $1 == 'dpdk' ]]
+then
+  directory="/home/lyang3/other_project/DPDK.L.1.2.2-2/DPDK"
+  file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
+elif [[ $1 == 'ab' ]]
+then
+  directory="/home/lyang3/work/isg_cid-wireless_lte /home/lyang3/work/isg_cid-wireless_l2_l3"
+  file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'nmm' ]]
 then
   directory="/home/lyang3/work/src_songit_lte/lte_t2k_meta"
@@ -44,7 +52,7 @@ else
   exit
 fi
 
-file_exclude="verif|CVS"
+file_exclude="verif|CVS|test|Test|cnsim"
 echo "Now generate tags for $1 project!"
 find $directory -type f $file_type | grep -i -v -E $file_exclude > ~/.vim/cscope_$1.files
 
