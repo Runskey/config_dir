@@ -62,7 +62,8 @@ if has("gui_running")
   "colorscheme muon 
   colorscheme gravity
   if has("mac")
-    set guifont=Consolas:h16
+    "set guifont=Consolas:h16
+    set guifont=InputMonoCondensed\ Light:h13
   else
     set guifont=Consolas\ 9
   endif
