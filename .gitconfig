@@ -21,8 +21,6 @@
 	prompt = false
 [color]
 	ui = auto
-#[http]
-#  proxy = http://proxy-prc.intel.com:911 for github.com
 [core]
 	autocrlf = false
 	safecrlf = false

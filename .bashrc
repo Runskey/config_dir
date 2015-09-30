@@ -241,10 +241,10 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
 
   export LANG=en
 
-  alias ilab='ssh -X lyang3@10.239.20.120'
-  alias liaohe='ssh -X liny@172.16.126.60'
-  alias 8l07='ssh -X lin.yang@172.16.124.117'
-  alias sonblade='ssh -X yanglin@172.16.126.54'
+  alias ilab='ssh -Y lyang3@10.239.20.120'
+  alias liaohe='ssh -Y liny@172.16.126.60'
+  alias 8l07='ssh -Y lin.yang@172.16.124.117'
+  alias sonblade='ssh -Y yanglin@172.16.126.54'
 
   alias enbs='ssh -Y root@172.16.124.67'
   alias epcs='ssh -Y root@172.16.124.115'
