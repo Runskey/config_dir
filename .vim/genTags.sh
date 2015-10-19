@@ -28,7 +28,13 @@ then
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'dpdk' ]]
 then
-  directory="/home/lyang3/other_project/DPDK.L.1.2.2-2/DPDK"
+  if [[ $myconfig_platform == 'mac' ]]
+  then
+    directory="/Users/Lin/project/DPDK/lib /Users/Lin/project/DPDK/examples"
+  elif [[ $myconfig_platform == 'cygwin' ]]
+  then
+    directory="/home/lyang3/other_project/DPDK.L.1.2.2-2/DPDK"
+  fi
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'ab' ]]
 then
