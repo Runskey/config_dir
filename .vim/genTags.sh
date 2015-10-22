@@ -28,7 +28,13 @@ then
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'dpdk' ]]
 then
-  directory="/home/lyang3/other_project/dpdk-2.0.0"
+  if [[ $myconfig_platform == 'mac' ]]
+  then
+    directory="/Users/Lin/project/DPDK/lib /Users/Lin/project/DPDK/examples"
+  elif [[ $myconfig_platform == 'cygwin' ]]
+  then
+    directory="/home/lyang3/other_project/dpdk-2.0.0"
+  fi
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'ab' ]]
 then
@@ -41,6 +47,16 @@ then
 elif [[ $1 == 'nmm' ]]
 then
   directory="/home/lyang3/work/src_songit_lte/lte_t2k_meta"
+  file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
+elif [[ $1 == 'mec' ]]
+then
+  if [[ $myconfig_platform == 'mac' ]]
+  then
+    directory="/Users/Lin/project/isg_cid-wireless_mec/nes /Users/Lin/project/isg_cid-wireless_mec/libs"
+  elif [[ $myconfig_platform == 'cygwin' ]]
+  then
+    directory=""
+  fi
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
 elif [[ $1 == 'son' ]]
 then
