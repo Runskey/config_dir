@@ -248,6 +248,8 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
 
   alias enbs='ssh -Y root@172.16.124.67'
   alias epcs='ssh -Y root@172.16.124.115'
+  alias mecs='ssh -Y root@172.16.124.69'
+  alias chunmingmec='ssh -Y root@10.240.224.186'
   alias hefanepc='ssh -Y root@10.240.224.180'
   alias hefanenb='ssh -Y root@10.240.224.166'
 
@@ -265,4 +267,4 @@ else
 
 fi
 
-export DISPLAY=":0.0"
+export DISPLAY=":2.0"
