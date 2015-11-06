@@ -239,7 +239,11 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
   #export http_proxy=http://proxy-prc.intel.com:911
   export PATH=~/bin/arm-2010.09/bin:/cygdrive/c/Java/jdk1.7.0_67/bin:$PATH
 
-  export LANG=en
+  #export LANG=en
+  export LANG=zh_CN.gbk
+  export LC_TIME="C"
+  export LC_MESSAGES="C"
+  export LC_NUMERIC="C"
 
   alias ilab='ssh -Y lyang3@10.239.20.120'
   alias liaohe='ssh -Y liny@172.16.126.60'
