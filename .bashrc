@@ -256,6 +256,10 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
   alias chunmingmec='ssh -Y root@10.240.224.186'
   alias hefanepc='ssh -Y root@10.240.224.180'
   alias hefanenb='ssh -Y root@10.240.224.166'
+  alias sktepc="ssh -Y root@10.240.224.204"
+  alias sktenb="ssh -Y root@10.240.224.211"
+  alias sktmec="ssh -Y root@10.240.224.209"
+  alias sktgui="ssh -Y traffic-server@10.240.224.210"
 
   export EDITOR=/usr/bin/vim
 
@@ -271,4 +275,4 @@ else
 
 fi
 
-export DISPLAY=":2.0"
+export DISPLAY=":0.0"
