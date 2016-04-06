@@ -44,9 +44,9 @@ elif [[ $1 == 'mec' ]]
 then
   directory="/home/lyang3/work/isg_cid-wireless_mec/nes /home/lyang3/work/isg_cid-wireless_mec/libs /home/lyang3/other_project/dpdk-2.0.0/lib /home/lyang3/other_project/dpdk-2.0.0/examples"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
-elif [[ $1 == 'nmm' ]]
+elif [[ $1 == 'testmac' ]]
 then
-  directory="/home/lyang3/work/src_songit_lte/lte_t2k_meta"
+  directory="/home/lyang3/work/isg_cid-lte_tdd_testmac"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
 elif [[ $1 == 'mec' ]]
 then
@@ -74,7 +74,7 @@ fi
 
 file_exclude="verif|CVS|test|Test|cnsim"
 echo "Now generate tags for $1 project!"
-find $directory -type f $file_type | grep -i -v -E $file_exclude > ~/.vim/cscope_$1.files
+find $directory -type f $file_type | grep -i -v -w -E $file_exclude > ~/.vim/cscope_$1.files
 
 rm -rf ~/.vim/cscope.files
 ln -s ~/.vim/cscope_$1.files ~/.vim/cscope.files
