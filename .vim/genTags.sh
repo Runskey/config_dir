@@ -40,6 +40,10 @@ elif [[ $1 == 'ab' ]]
 then
   directory="/home/lyang3/work/isg_cid-wireless_lte /home/lyang3/work/isg_cid-wireless_l2_l3"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
+elif [[ $1 == 'epc' ]]
+then
+  directory="/home/lyang3/work/isg_cid-wireless_epc_astri"
+  file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'mec' ]]
 then
   directory="/home/lyang3/work/isg_cid-wireless_mec/nes /home/lyang3/work/isg_cid-wireless_mec/libs /home/lyang3/other_project/dpdk-2.0.0/lib /home/lyang3/other_project/dpdk-2.0.0/examples"
