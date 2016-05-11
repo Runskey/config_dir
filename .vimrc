@@ -59,14 +59,13 @@ set guioptions=
 source ~/.vim/vundle_vimrc
 
 if has("gui_running")
-  colorscheme muon 
-  "colorscheme gravity
+  colorscheme muon
   if has("mac")
     "set guifont=Consolas:h16
     set guifont=InputMonoCondensed\ Light:h11
   else
-    set guifont=Noto\ Sans\ Mono\ CJK\ SC\ 9
-    "set guifont=Consolas\ 9
+    "set guifont=Noto\ Sans\ Mono\ CJK\ SC\ 9
+    set guifont=Consolas\ 9
   endif
   nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
@@ -155,6 +154,7 @@ nmap <Leader>N <Plug>MarkAllClear
 
 " NerdTree
 nnoremap <Leader>t :NERDTreeToggle<CR>
+let g:NERDTreeDirArrows=0
 
 " Narrow Regin Configuration
 "let g:nrrw_rgn_vert = 1      " open narrow region vertically
@@ -173,6 +173,13 @@ nnoremap <F3> :SessionSave<CR>
 
 " snipMate Configuration
 let g:snips_author = 'Lin Yang'
+
+let g:cpp_class_scope_highlight=1
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
