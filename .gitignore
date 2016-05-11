@@ -78,3 +78,7 @@ comic/
 project/
 .vim/bundle/
 cloud_src/
+.serverauth*
+
+
+
