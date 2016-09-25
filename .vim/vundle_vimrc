@@ -22,6 +22,10 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'gregsexton/Muon'
 Plugin 'vim-scripts/STL-Syntax'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'nathanaelkane/vim-indent-guides'
+
 "Plugin 'vim-scripts/Mark'
 "Plugin 'yuratomo/w3m.vim'
 "Plugin 'godlygeek/tabular'

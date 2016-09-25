@@ -81,3 +81,4 @@ project/
 cloud_src/
 .TeXmacs/
 .bash_sessions/
+.serverauth*

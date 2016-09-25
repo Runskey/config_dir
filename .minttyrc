@@ -1,6 +1,6 @@
 BoldAsFont=no
 Font=Consolas
-FontHeight=11
+FontHeight=9
 Transparency=off
 OpaqueWhenFocused=yes
 ForegroundColour=211,208,200
@@ -25,3 +25,5 @@ BoldWhite=242,240,236
 Columns=120
 Locale=C
 Charset=GBK
+RightClickAction=paste
+ClicksTargetApp=no
