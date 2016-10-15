@@ -213,9 +213,7 @@ map       <M-k>       <ESC>:ptprevious<CR>
 map       <leader>tg  :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 if has("cscope")
-  if has("mac")
-    set cscopeprg=/opt/local/bin/cscope
-  else
+  if has("win32")
     set cscopeprg=/usr/bin/cscope.exe
   endif
  set cscopequickfix=s-,c-,d-,i-,t-,e-
