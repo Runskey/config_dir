@@ -56,10 +56,12 @@ set matchtime=5                       "How many tenths of a second to blink
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 set guioptions=
 
+au FileType py set textwidth=79
+
 source ~/.vim/vundle_vimrc
 
 if has("gui_running")
-  colorscheme muon
+  colorscheme gravity
   if has("mac")
     "set guifont=Consolas:h16
     set guifont=InputMonoCondensed\ Light:h11
@@ -155,6 +157,11 @@ nmap <Leader>N <Plug>MarkAllClear
 " NerdTree
 nnoremap <Leader>t :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let g:NERDTreeShowBookmarks=1
+
 
 " Narrow Regin Configuration
 "let g:nrrw_rgn_vert = 1      " open narrow region vertically
@@ -185,7 +192,10 @@ let g:indent_guides_guide_size=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""     CSCOPE + CTAGS + Taglist              """"""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set tags=tags;
+
+" Syntax for multiple tag files are
+" set tags=/my/dir1/tags, /my/dir2/tags
+set tags=tags;$HOME/.vim/tags/
 if has("mac")
   let Tlist_Ctags_Cmd='/opt/local/bin/ctags'  " Specifies the path to the ctags utility.
 else
