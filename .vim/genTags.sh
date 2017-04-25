@@ -48,6 +48,10 @@ elif [[ $1 == 'mec' ]]
 then
   directory="/home/lyang3/work/isg_cid-wireless_mec/nes /home/lyang3/work/isg_cid-wireless_mec/libs /home/lyang3/other_project/dpdk-2.0.0/lib /home/lyang3/other_project/dpdk-2.0.0/examples"
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
+elif [[ $1 == 'softue' ]]
+then
+  directory="/home/lyang3/src/scf_jb_repo_fapsoftware-nbiot_uesimulator/src"
+  file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc -o -name *.hpp"
 elif [[ $1 == 'testmac' ]]
 then
   directory="/home/lyang3/work/isg_cid-lte_tdd_testmac"

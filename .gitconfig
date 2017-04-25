@@ -30,5 +30,5 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
-#[http]
-#  proxy = http://proxy-prc.intel.com:911 for github.com
+[http]
+  proxy = http://proxy-prc.intel.com:911 for github.com

@@ -124,7 +124,8 @@ if [[ $myconfig_platform == 'mac' ]]; then
   alias ls='ls -hFG'                            # classify files in colour
   alias ll='ls -lh'                             # long list
 else
-  alias ls='ls -hF --color=tty'                 # classify files in colour
+  #alias ls='ls -hF --color=tty'                 # classify files in colour
+  alias ls='ls --color=tty'                 # classify files in colour
   alias ll='ls -l'                              # long list
 fi
 alias dir='ls --color=auto --format=vertical'
@@ -244,6 +245,7 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
   export LC_TIME="C"
   export LC_MESSAGES="C"
   export LC_NUMERIC="C"
+  export DISPLAY=":0.0"
 
   alias ilab='ssh -Y lyang3@10.239.20.120'
   alias liaohe='ssh -Y liny@172.16.126.60'
@@ -258,8 +260,11 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
   alias hefanenb='ssh -Y root@10.240.224.166'
   alias sktepc="ssh -Y root@10.240.224.204"
   alias sktenb="ssh -Y root@10.240.224.211"
-  alias sktmec="ssh -Y root@10.240.224.209"
+  alias sktmec="ssh -Y root@10.240.224.214"
   alias sktgui="ssh -Y traffic-server@10.240.224.210"
+  alias ueserver="ssh -Y root@10.240.224.236"
+
+  alias polaris="ssh -Y intel@172.27.4.10"
 
   export EDITOR=/usr/bin/vim
 
@@ -275,4 +280,3 @@ else
 
 fi
 
-export DISPLAY=":0.0"
