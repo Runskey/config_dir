@@ -76,6 +76,28 @@ then
     directory="/home/lyang3/work/src_git_son"
   fi
   file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
+elif [[ $1 == 'leveldb' ]]
+then
+  if [[ $myconfig_platform == 'mac' ]]
+  then
+    directory="/Users/Lin/d/project/leveldb"
+  elif [[ $myconfig_platform == 'cygwin' ]]
+  then
+    directory="/tmp/"
+  fi
+  #file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
+  file_type="-name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
+elif [[ $1 == 'samp' ]]
+then
+  if [[ $myconfig_platform == 'mac' ]]
+  then
+    directory="/Users/Lin/d/code_sample/04_pc2200_fap_son /Users/Lin/d/code_sample/01_lte_mmwave_link_merge /Users/Lin/d/code_sample/02_dspio"
+  elif [[ $myconfig_platform == 'cygwin' ]]
+  then
+    directory="/tmp/"
+  fi
+  #file_type="-name *.vhd -o -name *.asm -o -name *.s -o -name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
+  file_type="-name *.c -o -name *.h -o -name *.inc -o -name *.cpp -o -name *.cc"
 else
   exit
 fi
