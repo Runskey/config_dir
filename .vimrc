@@ -65,7 +65,7 @@ if has("gui_running")
   if has("mac")
     "set guifont=Consolas:h16
     "set guifont=InputMonoCondensed\ Light:h11
-    set guifont=InputMonoCondensed\ Light:h11
+    set guifont=InputMonoNarrow:h14
   else
     "set guifont=Noto\ Sans\ Mono\ CJK\ SC\ 9
     set guifont=Consolas\ 10
@@ -106,7 +106,7 @@ set lazyredraw                        "Do not redraw, when running macros.. lazy
 set hidden                            "Change buffer - without saving
 set magic                             "Set magic on
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-"map <F9> ggVGg?                      " Buffer - reverse everything ... :)
+"map <F11> ggVGg?                      " Buffer - reverse everything ... :)
 
 " Configuration for vimdiff
 set diffopt=filler,context:10
@@ -168,7 +168,7 @@ let g:NERDTreeShowBookmarks=1
 "let g:nrrw_rgn_vert = 1      " open narrow region vertically
 "let g:nrrw_rgn_wdth = 30     " vertically, width
 let g:nrrw_rgn_protect = 'n' " don't protect the original buffer. Useful for diff
-vmap <F9> <Leader>nr<CR>
+vmap <F11> <Leader>nr<CR>
 
 " BufExplorer Configuration
 let g:bufExplorerSplitRight=1        " Split right.
@@ -216,7 +216,7 @@ let Tlist_Process_File_Always=1     " Process files even when taglist window is 
 set title titlestring=%<%f\ %([%{Tlist_Get_Tagname_By_Line()}]%)
 highlight MyTagListTagName guifg=blue ctermfg=blue
 
-nnoremap  <F9>        :TlistToggle<CR>
+nnoremap  <F11>        :TlistToggle<CR>
 nnoremap  <leader>tp  <ESC>:exe "ptjump " . expand("<cword>")<ESC>
 nnoremap  <leader>tj  <ESC>:exe "tjump  " . expand("<cword>")<ESC>
 map       <M-j>       <ESC>:ptnext<CR>
