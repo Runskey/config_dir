@@ -6,11 +6,11 @@
 .dbus/
 .fonts_backup/
 .gitk
-.gitmodules
 .gnuplot_history
 .histfile
 .ido.last
 .inputrc
+.profile
 .lesshst
 .nedit/
 .recentf
