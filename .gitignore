@@ -83,3 +83,6 @@ cloud_src/
 .TeXmacs/
 .bash_sessions/
 .serverauth*
+.Seagate
+.Trash
+.eclipse
