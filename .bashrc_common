@@ -282,9 +282,9 @@ elif [[ $myconfig_platform == 'mac' ]]; then
 
 elif [[ $myconfig_platform == 'linux' ]]; then
   # raspberry pi 3B+ cross compiling setup
-  export PATH=/opt/rpi_crosstool/bin:$PATH
-  export CFLAGS="-O2 -pipe -mcpu=arm1176jzf-s -mfpu=vfp -mfloat-abi=hard -w"
-
+  #export PATH=/opt/rpi_crosstool/bin:$PATH
+  #export CFLAGS="-O2 -pipe -mcpu=arm1176jzf-s -mfpu=vfp -mfloat-abi=hard -w"
+  echo "no special configuration for $myconfig_platform"
 
 else
   echo "no special configuration for $myconfig_platform"
