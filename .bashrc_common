@@ -280,6 +280,8 @@ elif [[ $myconfig_platform == 'mac' ]]; then
   # virtual machine
   alias vub='ssh -Y lin@vub.local' # username:lin password:l
 
+  set -o vi
+
 elif [[ $myconfig_platform == 'linux' ]]; then
   # raspberry pi 3B+ cross compiling setup
   #export PATH=/opt/rpi_crosstool/bin:$PATH
@@ -290,4 +292,3 @@ else
   echo "no special configuration for $myconfig_platform"
 
 fi
-
