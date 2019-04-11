@@ -61,7 +61,7 @@ au FileType py set textwidth=79
 source ~/.vim/vundle_vimrc
 
 if has("gui_running")
-  colorscheme gravity
+  colorscheme github
   if has("mac")
     "set guifont=Consolas:h16
     "set guifont=InputMonoCondensed\ Light:h11
@@ -73,7 +73,9 @@ if has("gui_running")
   nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
-  set background=dark
+  "set background=dark
+  "colorscheme 1989
+  colorscheme github
 endif
 
 
@@ -267,3 +269,7 @@ nmap <leader><leader>ie :scs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <leader><leader>if :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <leader><leader>ii :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <leader><leader>id :scs find d <C-R>=expand("<cword>")<CR><CR>
+
+
+" Support to javascript
+let javascript_enable_domhtmlcss = 1

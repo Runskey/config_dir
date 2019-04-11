@@ -59,10 +59,12 @@ Plugin 'Shell.vim'
 Plugin 'SirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
 
+Plugin 'pangloss/vim-javascript'
+
 "Plugin 'Solarized'
 Plugin 'Atom'
 Plugin 'Gravity'
-"Plugin 'github-theme'
+Plugin 'github-theme'
 "Plugin 'xemacs-colorscheme'
 "Plugin 'thinkpad.vim'
 
