@@ -33,6 +33,7 @@
 #[http]
 #  proxy = http://proxy-prc.intel.com:911 for github.com
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process

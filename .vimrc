@@ -60,12 +60,15 @@ au FileType py set textwidth=79
 
 source ~/.vim/vundle_vimrc
 
+" tweak for colorscheme spacegray
+let g:spacegray_underline_search = 1
+let g:spacegray_use_italics = 1
+let g:spacegray_low_contrast = 1
 if has("gui_running")
-  colorscheme github
+  colorscheme spacegray 
   if has("mac")
-    "set guifont=Consolas:h16
-    "set guifont=InputMonoCondensed\ Light:h11
-    set guifont=InputMonoNarrow:h14
+    set guifont=Consolas:h13
+    "set guifont=InputMonoNarrow:h13
   else
     "set guifont=Noto\ Sans\ Mono\ CJK\ SC\ 9
     set guifont=Consolas\ 10
@@ -74,10 +77,9 @@ if has("gui_running")
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
   "set background=dark
-  "colorscheme 1989
-  colorscheme github
+  "colorscheme github
+  colorscheme spacegray
 endif
-
 
 set guitablabel=%t
 set fileformat=unix
@@ -273,3 +275,11 @@ nmap <leader><leader>id :scs find d <C-R>=expand("<cword>")<CR><CR>
 
 " Support to javascript
 let javascript_enable_domhtmlcss = 1
+" support for Flow and its types
+let g:javascript_plugin_flow = 1
+" recognize jsx syntax in a js file
+let g:jsx_ext_required = 0
+" ale combine eslint
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+

@@ -280,8 +280,9 @@ elif [[ $myconfig_platform == 'mac' ]]; then
   export PATH=/opt/local/libexec/gnubin:$PATH
   export PATH=~/Library/Python/3.6/bin:$PATH
 
-  export GOPATH=$HOME/workspace/go
-  export PATH=$PATH:$GOPATH/bin
+  #export GOPATH=$HOME/workspace/go
+  #export PATH=$PATH:$GOPATH/bin
+  export PATH=$HOME/Projects/go-ethereum/build/bin:$PATH
 
   #eval `dircolors ~/.dircolors/dircolors.ansi-dark`
   export CSCOPE_DB="/Users/Lin/.vim/cscope.out"

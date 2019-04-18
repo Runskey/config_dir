@@ -4,7 +4,6 @@
 .cache/
 .config/
 .dbus/
-.fonts_backup/
 .gitk
 .gnuplot_history
 .histfile
