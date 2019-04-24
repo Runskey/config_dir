@@ -81,15 +81,15 @@ shopt -s cdspell
 # [[ -f /etc/bash_completion ]] && . /etc/bash_completion
 
 # History Options
-#
+
 # Don't put duplicate lines in the history.
-# export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-#
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+
 # Ignore some controlling instructions
 # HISTIGNORE is a colon-delimited list of patterns which should be excluded.
 # The '&' is a special pattern which suppresses duplicate entries.
-# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
-# export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit'
+export HISTIGNORE=$'[ \t]*:&:[fb]g:exit:ls' # Ignore the ls command as well
 #
 # Whenever displaying the prompt, write the previous line to disk
 # export PROMPT_COMMAND="history -a"
@@ -182,7 +182,6 @@ fi
 #   return 0
 # }
 # 
-# alias cd=cd_func
 
 if [[ $myconfig_platform == 'cygwin' ]]; then
   #export FRAMEWORK_3G=/d/picochip/project/Transcede/codeTree/3G-WCDMA/framework_3g
@@ -225,27 +224,23 @@ elif [[ $myconfig_platform == 'mac' ]]; then
   set -o vi
 
   if [ -d "/opt/local/libexec/gnubin" ] ; then
-    export PATH=$/opt/local/libexec/gnubin:$PATH
+    export PATH=/opt/local/libexec/gnubin:$PATH
   fi
 
   if [ -d "$HOME/Library/Python/3.6/bin" ] ; then
     export PATH=$HOME/Library/Python/3.6/bin:$PATH
   fi
 
-  #export GOPATH=$HOME/workspace/go
-  #export PATH=$PATH:$GOPATH/bin
-  FOLDER_GO_ETHEREUM_BIN="$HOME/Projects/go-ethereum/build/bin"
-  if [ -d "$FOLDER_GO_ETHEREUM_BIN" ] ; then
-    export PATH=$FOLDER_GO_ETHEREUM_BIN:$PATH
+  if [ -d "$HOME/Projects/go-ethereum/build/bin" ] ; then
+    export PATH=$HOME/Projects/go-ethereum/build/bin:$PATH
   fi
-
-  #eval `dircolors ~/.dircolors/dircolors.ansi-dark`
 
   if [ -f "/Users/Lin/.vim/cscope.out" ] ; then
     export CSCOPE_DB="/Users/Lin/.vim/cscope.out"
   fi
 
   export HDF5_USE_FILE_LOCKING="FALSE"
+  #eval `dircolors ~/.dircolors/dircolors.ansi-dark`
 
 elif [[ $myconfig_platform == 'linux' ]]; then
   # raspberry pi 3B+ cross compiling setup

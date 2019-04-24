@@ -86,9 +86,10 @@
 .ssh2/
 .subversion/
 .swt/
-.vim/bundle/
 .vim/cscope*
 .viminfo
+.vim/autoload
+.vim/plugged
 .vinevncauth
 .vscode
 .w3m/

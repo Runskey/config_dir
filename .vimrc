@@ -12,7 +12,7 @@ set novisualbell
 set confirm
 set autoindent                        "indent automatically
 set cindent
-set smartindent                       "automatic indent for C file
+set smartindent                       "automatic indent
 
 " _________________________________________________
 " tab setting
@@ -39,9 +39,9 @@ set textwidth=500
 set ambiwidth=double
 set wrap                              "wrap lines
 set ruler
-"filetype on                           "detect file type
-"filetype plugin on                    "Enable filetype plugin
-"filetype indent on                    " load special indent format for file types
+filetype on                           "detect file type
+filetype plugin on                    "Enable filetype plugin
+filetype indent on                    " load special indent format for file types
 set viminfo='10,\"100,:20,%,n~/.viminfo   "Restore cursor to file position in previous editing session
 set iskeyword+=_,$,@,%,#,-            "don't return with words containing these characters
 set linespace=1
@@ -65,7 +65,15 @@ set guioptions=
 
 au FileType py set textwidth=79
 
-source ~/.vim/vundle_vimrc
+" Install and run vim-plug on first run
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+source ~/.vim/plugins.vim
+
+nnoremap <leader>w :w<cr>
 
 "" tweak spacegray color scheme
 "let g:spacegray_underline_search = 0
@@ -73,11 +81,19 @@ source ~/.vim/vundle_vimrc
 "let g:spacegray_low_contrast = 1
 "colorscheme spacegray
 
-nnoremap <leader>w :w<cr>
+"" tweak github color scheme
+"let g:github_colors_soft = 1
+"colorscheme github 
 
-" tweak github color scheme
-let g:github_colors_soft = 1
-colorscheme github 
+"" tweak gruvbox color scheme
+" Possible values are soft, medium and hard
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_light = 'soft'
+let g:gruvbox_vert_split = 'bg0'
+let g:gruvbox_invert_signs = '1'
+let g:gruvbox_improved_strings = '1'
+let g:gruvbox_improved_warnings = '1'
+colorscheme gruvbox
 
 if has("gui_running")
   if has("mac")
@@ -90,7 +106,7 @@ if has("gui_running")
   nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
-  "set background=dark
+  set background=dark
 endif
 
 set guitablabel=%t
@@ -104,7 +120,7 @@ let g:mapleader = ","
 "map <leader>s :source ~/.vimrc<cr>    "Fast reloading of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
 autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
-autocmd! BufWritePost vundle_vimrc source ~/.vim/vundle_vimrc    "When .vimrc is edited, reload it
+autocmd! BufWritePost plugins.vim source ~/.vim/plugins.vim "When plugins.vim is edited, reload it
 
 ""Some nice mapping to switch syntax (useful if one mixes different languages in one file)
 "map <leader>1 :set syntax=c<cr>
@@ -199,10 +215,15 @@ let g:snips_author = 'Lin Yang'
 
 let g:cpp_class_scope_highlight=1
 
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
-":nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_start_level=2
+"let g:indent_guides_guide_size=2
+"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+
+" ___________________________________________________________
+" vim-indentLine
+" highlight conceal color with colorscheme
+let g:indentLine_setColors = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""     CSCOPE + CTAGS + Taglist              """"""""""""
