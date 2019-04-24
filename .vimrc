@@ -13,11 +13,17 @@ set confirm
 set autoindent                        "indent automatically
 set cindent
 set smartindent                       "automatic indent for C file
+
+" _________________________________________________
+" tab setting
 set tabstop=2                         "tab width
 set softtabstop=2
 set shiftwidth=2
 set expandtab                         "Expand tab with space
 set smarttab
+" for js file, 4 spaces
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab smarttab
+
 set number                            "Show line number
 set history=1000                      "Sets how many lines of history VIM har to remember
 set nobackup                          "Turn backup off
@@ -42,7 +48,8 @@ set linespace=1
 set wildmenu                          "Turn on Wild menu
 set backspace=indent,eol,start        "Set backspace
 set whichwrap+=<,>,h,l                "Bbackspace and cursor keys wrap to
-set autochdir                         "Automatically switch current dir as current file dir
+"set autochdir                         "Automatically switch current dir as current file dir.
+                                      ""don't need. Use vim rooter plugin instead.
 set mouse=a                           "Have the mouse enabled all the time:
 set selection=exclusive
 set selectmode=mouse,key
@@ -60,15 +67,22 @@ au FileType py set textwidth=79
 
 source ~/.vim/vundle_vimrc
 
-" tweak for colorscheme spacegray
-let g:spacegray_underline_search = 1
-let g:spacegray_use_italics = 1
-let g:spacegray_low_contrast = 1
+"" tweak spacegray color scheme
+"let g:spacegray_underline_search = 0
+"let g:spacegray_use_italics = 1
+"let g:spacegray_low_contrast = 1
+"colorscheme spacegray
+
+nnoremap <leader>w :w<cr>
+
+" tweak github color scheme
+let g:github_colors_soft = 1
+colorscheme github 
+
 if has("gui_running")
-  colorscheme spacegray 
   if has("mac")
-    set guifont=Consolas:h13
-    "set guifont=InputMonoNarrow:h13
+    "set guifont=Consolas:h14
+    set guifont=InputMonoNarrow:h14
   else
     "set guifont=Noto\ Sans\ Mono\ CJK\ SC\ 9
     set guifont=Consolas\ 10
@@ -77,8 +91,6 @@ if has("gui_running")
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
   "set background=dark
-  "colorscheme github
-  colorscheme spacegray
 endif
 
 set guitablabel=%t
@@ -89,16 +101,16 @@ nmap <leader>fu :se ff=unix<cr>
 set autoread                          "Set to auto read when a file is changed from the outside
 let mapleader = ","                   "Set mapleader
 let g:mapleader = ","
-map <leader>s :source ~/.vimrc<cr>    "Fast reloading of the .vimrc
-map <leader>e :e! ~/.vimrc<cr>        "Fast editing of .vimrc
+"map <leader>s :source ~/.vimrc<cr>    "Fast reloading of the .vimrc
+map <leader>e :e! ~/.vimrc<cr>
 autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
 autocmd! BufWritePost vundle_vimrc source ~/.vim/vundle_vimrc    "When .vimrc is edited, reload it
 
-"Some nice mapping to switch syntax (useful if one mixes different languages in one file)
-map <leader>1 :set syntax=c<cr>
-map <leader>2 :set syntax=vhdl<cr>
-map <leader>3 :set syntax=tcl<cr>
-map <leader>4 :set syntax=python<cr>
+""Some nice mapping to switch syntax (useful if one mixes different languages in one file)
+"map <leader>1 :set syntax=c<cr>
+"map <leader>2 :set syntax=vhdl<cr>
+"map <leader>3 :set syntax=tcl<cr>
+"map <leader>4 :set syntax=python<cr>
 
 au BufRead,BufNewFile *.adoc set filetype=asciidoc
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
@@ -141,15 +153,15 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strf
 """     plugin setting                                                      """
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:yankring_history_dir = '$VIM'
-
 " Configures for ShowMarks plugin
 let showmarks_include =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 nnoremap <F10> :ShowMarksToggle<CR>
 
-"Configuration for Mark
-let g:mwDefaultHighlightingPalette = 'extended' " extend the color group to 18
-let g:mwDefaultHighlightingNum = 9  " Reduce color group number
+" __________________________________________________
+" Tweak vim-mark
+" switch to a richer palette of up to 18 colors
+let g:mwDefaultHighlightingPalette = 'extended'
+"let g:mwDefaultHighlightingNum = 9    " Reduce color group number
 let g:mwHistAdd = '' " By default the marked word is also added to search (/) and input (@) but I don't want to do so   
 
 " these two lines remove the default overridding of * and # operation
@@ -166,7 +178,6 @@ let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let g:NERDTreeShowBookmarks=1
-
 
 " Narrow Regin Configuration
 "let g:nrrw_rgn_vert = 1      " open narrow region vertically
@@ -191,8 +202,7 @@ let g:cpp_class_scope_highlight=1
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
-
+":nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""     CSCOPE + CTAGS + Taglist              """"""""""""
@@ -272,7 +282,6 @@ nmap <leader><leader>if :scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <leader><leader>ii :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <leader><leader>id :scs find d <C-R>=expand("<cword>")<CR><CR>
 
-
 " Support to javascript
 let javascript_enable_domhtmlcss = 1
 " support for Flow and its types
@@ -282,4 +291,68 @@ let g:jsx_ext_required = 0
 " ale combine eslint
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
+
+" ____________________________________________________
+" tweak search and replace
+" Add fzf into vim runtime path
+
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+
+" ____________________________________________________
+" tweak markdown
+
+"" disable folding
+"let g:vim_markdown_folding_disabled = 1
+
+"" fold in a style like python-mode
+"" g:vim_markdown_folding_level setting is not active with this fold style
+"let g:vim_markdown_folding_style_pythonic = 1
+
+" folding level is a number between 1 and 6
+let g:vim_markdown_folding_level = 6
+
+"" disable default key mapping
+"let g:vim_markdown_no_default_key_mappings = 1
+
+" allow for the TOC window to auto-fit
+let g:vim_markdown_toc_autofit = 1
+
+" text emphasis restriction to single-lines
+let g:vim_markdown_emphasis_multiline = 0
+
+" enable conceal use Vim's standard conceal configuration
+set conceallevel=2
+" disable math conceal with LaTeX math syntax enabled
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
+" fenced code block languages
+let g:vim_markdown_fenced_languages = ['csharp=cs', 'c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini']
+
+" hightlight JSON front matter as used by Hugo 
+let g:vim_markdown_json_frontmatter = 1
+
+" use strikethrough
+let g:vim_markdown_strikethrough = 1
+
+" adjust the number of spaces of indent of new list item
+let g:vim_markdown_new_list_item_indent = 2
+
+" do NOT require .md extensions for Markdown links
+let g:vim_markdown_no_extensions_in_markdown = 1
+
+" __________________________________________________
+" set UltiSnips
+"let g:UltiSnipsExpandTrigger="<S-tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+
+" __________________________________________________
+" Change to file's directory (similar to autochdir).
+let g:rooter_change_directory_for_non_project_files = 'current'
+" To change directory for the current window only (:lcd)
+let g:rooter_use_lcd = 1
+"To stop vim-rooter echoing the project directory
+let g:rooter_silent_chdir = 1
 
