@@ -59,9 +59,6 @@ set cmdheight=1                       "The commandbar is 2 high
 set fillchars=vert:\ ,stl:\ ,stlnc:\  "show space at split line
 set showmatch                         "show matching bracets
 set matchtime=5                       "How many tenths of a second to blink
-"set cursorline                        "highlight current line
-"hi CursorLine term=bold cterm=bold guibg=Grey40
-set guioptions=
 
 au FileType py set textwidth=79
 
@@ -74,40 +71,6 @@ endif
 source ~/.vim/plugins.vim
 
 nnoremap <leader>w :w<cr>
-
-"" tweak spacegray color scheme
-"let g:spacegray_underline_search = 0
-"let g:spacegray_use_italics = 1
-"let g:spacegray_low_contrast = 1
-"colorscheme spacegray
-
-"" tweak github color scheme
-"let g:github_colors_soft = 1
-"colorscheme github 
-
-"" tweak gruvbox color scheme
-" Possible values are soft, medium and hard
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_contrast_light = 'soft'
-let g:gruvbox_vert_split = 'bg0'
-let g:gruvbox_invert_signs = '1'
-let g:gruvbox_improved_strings = '1'
-let g:gruvbox_improved_warnings = '1'
-colorscheme gruvbox
-
-if has("gui_running")
-  if has("mac")
-    "set guifont=Consolas:h14
-    set guifont=InputMonoNarrow:h14
-  else
-    "set guifont=Noto\ Sans\ Mono\ CJK\ SC\ 9
-    set guifont=Consolas\ 10
-  endif
-  nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
-  nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
-else
-  set background=dark
-endif
 
 set guitablabel=%t
 set fileformat=unix
@@ -225,83 +188,6 @@ let g:cpp_class_scope_highlight=1
 " highlight conceal color with colorscheme
 let g:indentLine_setColors = 0
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""     CSCOPE + CTAGS + Taglist              """"""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Syntax for multiple tag files are
-" set tags=/my/dir1/tags, /my/dir2/tags
-set tags=tags;$HOME/.vim/tags/
-if has("mac")
-  let Tlist_Ctags_Cmd='/opt/local/bin/ctags'  " Specifies the path to the ctags utility.
-else
-  let Tlist_Ctags_Cmd='/usr/bin/ctags'  " Specifies the path to the ctags utility.
-endif
-let Tlist_Show_One_File=1           " Display the tags for only the current active buffer
-let Tlist_Use_Right_Window=1        " Split taglist window on the rightmost side
-let Tlist_Inc_Winwidth=0            " Prevent window size change when taglist window is closed
-let Tlist_Compact_Format=1          " Reduce the number of empty lines in taglist window
-let Tlist_Auto_Highlight_Tag=1      " Automatically highlight the current tag in the taglist
-let Tlist_Auto_Update=1             " Automatically update taglist to include newly edited files
-let Tlist_Exit_OnlyWindow=1         " Close Vim if the taglist is the only window
-let Tlist_File_Fold_Auto_Close=1    " Close tag folds for inactive buffers
-let Tlist_Sort_Type='name'          " Sort method used for arrranging the tags
-let Tlist_Process_File_Always=1     " Process files even when taglist window is closed
-
-set title titlestring=%<%f\ %([%{Tlist_Get_Tagname_By_Line()}]%)
-highlight MyTagListTagName guifg=blue ctermfg=blue
-
-nnoremap  <F11>        :TlistToggle<CR>
-nnoremap  <leader>tp  <ESC>:exe "ptjump " . expand("<cword>")<ESC>
-nnoremap  <leader>tj  <ESC>:exe "tjump  " . expand("<cword>")<ESC>
-map       <M-j>       <ESC>:ptnext<CR>
-map       <M-k>       <ESC>:ptprevious<CR>
-map       <leader>tg  :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-
-if has("cscope")
-  if has("win32")
-    set cscopeprg=/usr/bin/cscope.exe
-  endif
- set cscopequickfix=s-,c-,d-,i-,t-,e-
- set csto=0    " cscope databases are searched first, followed by tag files.
- set cscopetag " Search cscope databases instead of the default tag behavior
- set nocsverb  " messages will not be printed indicating success or failure when adding database
- set cspc=6    " display the last 6 components of the file's path
-
- " add any database in current directory
- if filereadable("cscope.out")
-     cs add cscope.out
- " else add database pointed to by environment
- elseif $CSCOPE_DB != ""
-     cs add $CSCOPE_DB
- endif
- set csverb
-endif
-
-"0 or s: Find this C symbol
-"1 or g: Find this definition
-"2 or d: Find functions called by this function
-"3 or c: Find functions calling this function
-"4 or t: Find this text string
-"6 or e: Find this egrep pattern
-"7 or f: Find this file
-"8 or i: Find files #including this file
-nmap <leader>is :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>ig :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>ic :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>it :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>ie :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <leader>if :cs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <leader>ii :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <leader>id :cs find d <C-R>=expand("<cword>")<CR><CR>
-nmap <leader><leader>is :scs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <leader><leader>ig :scs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <leader><leader>ic :scs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <leader><leader>it :scs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <leader><leader>ie :scs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <leader><leader>if :scs find f <C-R>=expand("<cfile>")<CR><CR>
-nmap <leader><leader>ii :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-nmap <leader><leader>id :scs find d <C-R>=expand("<cword>")<CR><CR>
 
 " Support to javascript
 let javascript_enable_domhtmlcss = 1
@@ -310,8 +196,10 @@ let g:javascript_plugin_flow = 1
 " recognize jsx syntax in a js file
 let g:jsx_ext_required = 0
 " ale combine eslint
-let g:ale_lint_on_save = 1
+let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_save = 1
+let g:ale_open_list = 0
 
 " ____________________________________________________
 " tweak search and replace
@@ -377,3 +265,6 @@ let g:rooter_use_lcd = 1
 "To stop vim-rooter echoing the project directory
 let g:rooter_silent_chdir = 1
 
+source ~/.vim/plugins.vim
+"source ~/.vim/tags_conf.vim
+source ~/.vim/theme_conf.vim

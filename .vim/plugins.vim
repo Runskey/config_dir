@@ -46,6 +46,8 @@ Plug 'gregsexton/Muon'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'ajh17/Spacegray.vim'
 Plug 'morhetz/gruvbox'
+Plug 'airblade/vim-gitgutter'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'benekastah/neomake', Cond(has('nvim'))
 
