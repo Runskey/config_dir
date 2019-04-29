@@ -48,6 +48,7 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
 
 Plug 'benekastah/neomake', Cond(has('nvim'))
 

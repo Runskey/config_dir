@@ -266,5 +266,5 @@ let g:rooter_use_lcd = 1
 let g:rooter_silent_chdir = 1
 
 source ~/.vim/plugins.vim
-"source ~/.vim/tags_conf.vim
+source ~/.vim/tags_conf.vim
 source ~/.vim/theme_conf.vim
