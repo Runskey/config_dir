@@ -1,15 +1,32 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""     CSCOPE + CTAGS + Taglist              """"""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --------------------------------------------------
+" ----    CSCOPE style commands
+" --------------------------------------------------
+"0 or s: Find this symbol
+"1 or g: Find this definition
+"2 or d: Find functions called by this function
+"3 or c: Find functions calling this function
+"4 or t: Find this text string
+"6 or e: Find this egrep pattern
+"7 or f: Find this file
+"8 or i: Find files #including this file
+"9 or a: Find places where this symbol is assigned a value
 
+" --------------------------------------------------
+" ----    ctags
+" --------------------------------------------------
 " Syntax for multiple tag files are
 " set tags=/my/dir1/tags, /my/dir2/tags
 "set tags=./.tags;,.tags
+
+" --------------------------------------------------
+" ----    Taglist
+" --------------------------------------------------
 "if has("mac")
   "let Tlist_Ctags_Cmd='/opt/local/bin/ctags'  " Specifies the path to the ctags utility.
 "else
   "let Tlist_Ctags_Cmd='/usr/bin/ctags'  " Specifies the path to the ctags utility.
 "endif
+
 "let Tlist_Show_One_File=1           " Display the tags for only the current active buffer
 "let Tlist_Use_Right_Window=1        " Split taglist window on the rightmost side
 "let Tlist_Inc_Winwidth=0            " Prevent window size change when taglist window is closed
@@ -31,6 +48,9 @@
 "map       <M-k>       <ESC>:ptprevious<CR>
 "map       <leader>tg  :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
+" --------------------------------------------------
+" ----    cscope
+" --------------------------------------------------
 "if has("cscope")
   "if has("win32")
     "set cscopeprg=/usr/bin/cscope.exe
@@ -51,19 +71,6 @@
  "set csverb
 "endif
 
-" ________________________________________________
-" CSCOPE style commands
-" ________________________________________________
-"0 or s: Find this symbol
-"1 or g: Find this definition
-"2 or d: Find functions called by this function
-"3 or c: Find functions calling this function
-"4 or t: Find this text string
-"6 or e: Find this egrep pattern
-"7 or f: Find this file
-"8 or i: Find files #including this file
-"9 or a: Find places where this symbol is assigned a value
-
 "nmap <leader>is :cs find s <C-R>=expand("<cword>")<CR><CR>
 "nmap <leader>ig :cs find g <C-R>=expand("<cword>")<CR><CR>
 "nmap <leader>ic :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -81,12 +88,9 @@
 "nmap <leader><leader>ii :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <leader><leader>id :scs find d <C-R>=expand("<cword>")<CR><CR>
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""                 GNU Global                """"""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" __________________________________________________
-" set gtags 
+" --------------------------------------------------
+" ----    GNU Global (gtags)
+" --------------------------------------------------
 let $GTAGSLABEL = 'native-pygments'
 let $GTAGSCONF = '/opt/local/share/gtags/gtags.conf'
 

@@ -1,6 +1,7 @@
 "set cursorline                        "highlight current line
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 set guioptions=
+set termguicolors
 
 "" tweak spacegray color scheme
 "let g:spacegray_underline_search = 0
@@ -16,7 +17,7 @@ set guioptions=
 " Possible values are soft, medium and hard
 let g:gruvbox_contrast_dark = 'soft'
 let g:gruvbox_contrast_light = 'soft'
-let g:gruvbox_vert_split = 'bg0'
+let g:gruvbox_vert_split = 'bg1'
 let g:gruvbox_invert_signs = '1'
 let g:gruvbox_improved_strings = '1'
 let g:gruvbox_improved_warnings = '1'

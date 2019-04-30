@@ -8,6 +8,7 @@ set nocompatible
 syntax on                             "Enable syntax hl
 set noerrorbells                      "No sound on errors.
 set novisualbell
+set updatetime=400
 set confirm
 set autoindent                        "indent automatically
 set cindent
@@ -70,7 +71,7 @@ let g:mapleader = ","
 "map <leader>s :source ~/.vimrc<cr>    "Fast reloading of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
 nnoremap <leader>w :w<cr>
-"autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
+autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
 "autocmd! BufWritePost plugins.vim source ~/.vim/plugins.vim "When plugins.vim is edited, reload it
 
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
@@ -92,7 +93,7 @@ set previewheight=15
 " ----    Status line Configuration Example
 " --------------------------------------------------
 set laststatus=2                      "always show status line
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  " format the status line
+set statusline=%F%m%r%h%w\ [%{&ff}][%Y]%=[%l,%v][%p%%]\ %{strftime(\"%d/%b/%y\ %H:%M\")}  " format the status line
 
 " --------------------------------------------------
 " ----    Plug 'junegunn/vim-plug'
@@ -131,7 +132,7 @@ nmap <Leader>N <Plug>MarkAllClear
 nnoremap <Leader>t :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
+let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let g:NERDTreeShowBookmarks=1
 
@@ -142,13 +143,6 @@ let g:NERDTreeShowBookmarks=1
 "let g:nrrw_rgn_wdth = 30     " vertically, width
 let g:nrrw_rgn_protect = 'n' " don't protect the original buffer. Useful for diff
 vmap <F11> <Leader>nr<CR>
-
-" --------------------------------------------------
-" ----    Plug 'jlanzarotta/bufexplorer'
-" --------------------------------------------------
-let g:bufExplorerSplitRight=1        " Split right.
-let g:bufExplorerShowRelativePath=1  " Show relative paths.
-let g:bufExplorerShowDirectories=0   " Don't show directories.
 
 " --------------------------------------------------
 " ----    Plug 'octol/vim-cpp-enhanced-highlight'
