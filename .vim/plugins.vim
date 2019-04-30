@@ -45,6 +45,7 @@ Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
+Plug 'rakr/vim-one'
 Plug 'benekastah/neomake', Cond(has('nvim'))
 
 call plug#end()

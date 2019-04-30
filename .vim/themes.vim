@@ -1,7 +1,6 @@
 "set cursorline                        "highlight current line
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 set guioptions=
-set termguicolors
 
 "" tweak spacegray color scheme
 "let g:spacegray_underline_search = 0
@@ -23,7 +22,14 @@ let g:gruvbox_improved_strings = '1'
 let g:gruvbox_improved_warnings = '1'
 "colorscheme gruvbox
 
+" tweak one color scheme
+let g:one_allow_italics = 1
+
 if has("gui_running")
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+
   if has("mac")
     set guifont=InputMonoNarrow:h14
   else
@@ -48,6 +54,6 @@ if has("gui_running")
   nmap <C-F7> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) - 1)', '')<CR>
   nmap <C-F8> :let &guifont = substitute(&guifont, '\ \(\d\+\)', '\="\ " . (submatch(1) + 1)', '')<CR>
 else
-  set background=dark
   colorscheme gruvbox
+  set background=dark " for the dark version
 endif
