@@ -95,6 +95,8 @@ let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
 " set exclude file list
 let g:gutentags_ctags_exclude = ['node_modules']
+" set exclude project roots
+let g:gutentags_exclude_project_root = ['/usr/local', '/Users/linyang', 'Users/Lin']
 
 " 所生成的数据文件的名称
 let g:gutentags_ctags_tagfile = '.tags'
