@@ -1,7 +1,6 @@
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --------------------------------------------------
+" ----    General
+" --------------------------------------------------
 set nocompatible
 "source $VIMRUNTIME/vimrc_example.vim
 "source $VIMRUNTIME/mswin.vim
@@ -13,19 +12,8 @@ set confirm
 set autoindent                        "indent automatically
 set cindent
 set smartindent                       "automatic indent
-
-" _________________________________________________
-" tab setting
-set tabstop=2                         "tab width
-set softtabstop=2
-set shiftwidth=2
-set expandtab                         "Expand tab with space
-set smarttab
-" for js file, 4 spaces
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab smarttab
-
 set number                            "Show line number
-set history=1000                      "Sets how many lines of history VIM har to remember
+set history=1000                      "Sets lines of history VIM har to remember
 set nobackup                          "Turn backup off
 set nowritebackup
 set noswapfile
@@ -39,9 +27,20 @@ set textwidth=500
 set ambiwidth=double
 set wrap                              "wrap lines
 set ruler
+
+set tabstop=2                         "tab width
+set softtabstop=2
+set expandtab                         "Expand tab with space
+set smarttab
+set shiftwidth=2
+
 filetype on                           "detect file type
 filetype plugin on                    "Enable filetype plugin
 filetype indent on                    " load special indent format for file types
+autocmd BufRead,BufNewFile *.adoc set filetype=asciidoc
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab smarttab
+autocmd FileType py set textwidth=79
+
 set viminfo='10,\"100,:20,%,n~/.viminfo   "Restore cursor to file position in previous editing session
 set iskeyword+=_,$,@,%,#,-            "don't return with words containing these characters
 set linespace=1
@@ -60,18 +59,6 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\  "show space at split line
 set showmatch                         "show matching bracets
 set matchtime=5                       "How many tenths of a second to blink
 
-au FileType py set textwidth=79
-
-" Install and run vim-plug on first run
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-source ~/.vim/plugins.vim
-
-nnoremap <leader>w :w<cr>
-
 set guitablabel=%t
 set fileformat=unix
 set fileformats=unix,dos,mac          "Favorite filetypes
@@ -82,17 +69,11 @@ let mapleader = ","                   "Set mapleader
 let g:mapleader = ","
 "map <leader>s :source ~/.vimrc<cr>    "Fast reloading of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
-autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
-autocmd! BufWritePost plugins.vim source ~/.vim/plugins.vim "When plugins.vim is edited, reload it
+nnoremap <leader>w :w<cr>
+"autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
+"autocmd! BufWritePost plugins.vim source ~/.vim/plugins.vim "When plugins.vim is edited, reload it
 
-""Some nice mapping to switch syntax (useful if one mixes different languages in one file)
-"map <leader>1 :set syntax=c<cr>
-"map <leader>2 :set syntax=vhdl<cr>
-"map <leader>3 :set syntax=tcl<cr>
-"map <leader>4 :set syntax=python<cr>
-
-au BufRead,BufNewFile *.adoc set filetype=asciidoc
-au QuickfixCmdPost make,grep,grepadd,vimgrep copen
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 map <C-j> <ESC>:cn<CR>
 map <C-k> <ESC>:cp<CR>
 
@@ -100,44 +81,38 @@ autocmd BufEnter * :syntax sync fromstart
 set lazyredraw                        "Do not redraw, when running macros.. lazyredraw
 set hidden                            "Change buffer - without saving
 set magic                             "Set magic on
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 "map <F11> ggVGg?                      " Buffer - reverse everything ... :)
 
 " Configuration for vimdiff
 set diffopt=filler,context:10
-
 set previewheight=15
 
-" Maps Alt-j and Alt-k to move other window
-fun! ScrollOtherWindow(dir)
-   "if a:dir == "down"
-       "let move = "\<C-E>"
-   "elseif a:dir == "up"
-       "let move = "\<C-Y>"
-   "endif
-   "exec "normal \<C-W>p" . move . "\<C-W>p"
-endfun
-"nmap <silent> <M-j> :call ScrollOtherWindow("down")<CR>
-"nmap <silent> <M-k> :call ScrollOtherWindow("up")<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""" STATUS LINE CONFIGURATION EXAMPLE """""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --------------------------------------------------
+" ----    Status line Configuration Example
+" --------------------------------------------------
 set laststatus=2                      "always show status line
-
-" A plain & simple example
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}  " format the status line
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""     plugin setting                                                      """
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --------------------------------------------------
+" ----    Plug 'junegunn/vim-plug'
+" --------------------------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+source ~/.vim/plugins.vim
 
-" Configures for ShowMarks plugin
+" --------------------------------------------------
+" ----    Plug 'vim-scripts/showmarks'
+" --------------------------------------------------
 let showmarks_include =  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 nnoremap <F10> :ShowMarksToggle<CR>
 
-" __________________________________________________
-" Tweak vim-mark
+" --------------------------------------------------
+" ----    Plug 'inkarkat/vim-mark'
+" --------------------------------------------------
 " switch to a richer palette of up to 18 colors
 let g:mwDefaultHighlightingPalette = 'extended'
 "let g:mwDefaultHighlightingNum = 9    " Reduce color group number
@@ -150,7 +125,9 @@ nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
 nmap <Leader>M <Plug>MarkToggle 
 nmap <Leader>N <Plug>MarkAllClear
 
-" NerdTree
+" --------------------------------------------------
+" ----    Plug 'scrooloose/nerdtree'
+" --------------------------------------------------
 nnoremap <Leader>t :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 let g:NERDTreeChDirMode=2
@@ -158,59 +135,59 @@ let g:NERDTreeIgnore=['\.vim$', '\~$', '\.pyc$', '\.swp$']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
 let g:NERDTreeShowBookmarks=1
 
-" Narrow Regin Configuration
+" --------------------------------------------------
+" ----    Plug 'chrisbra/NrrwRgn'
+" --------------------------------------------------
 "let g:nrrw_rgn_vert = 1      " open narrow region vertically
 "let g:nrrw_rgn_wdth = 30     " vertically, width
 let g:nrrw_rgn_protect = 'n' " don't protect the original buffer. Useful for diff
 vmap <F11> <Leader>nr<CR>
 
-" BufExplorer Configuration
+" --------------------------------------------------
+" ----    Plug 'jlanzarotta/bufexplorer'
+" --------------------------------------------------
 let g:bufExplorerSplitRight=1        " Split right.
 let g:bufExplorerShowRelativePath=1  " Show relative paths.
 let g:bufExplorerShowDirectories=0   " Don't show directories.
 
-" Session Man
-let g:sessionman_save_on_exit=0 
-nnoremap <F3> :SessionSave<CR>
-
-" snipMate Configuration
-let g:snips_author = 'Lin Yang'
-
+" --------------------------------------------------
+" ----    Plug 'octol/vim-cpp-enhanced-highlight'
+" --------------------------------------------------
 let g:cpp_class_scope_highlight=1
 
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_start_level=2
-"let g:indent_guides_guide_size=2
-"let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-
-" ___________________________________________________________
-" vim-indentLine
+" --------------------------------------------------
+" ----    Plug 'Yggdroot/indentLine'
+" --------------------------------------------------
 " highlight conceal color with colorscheme
 let g:indentLine_setColors = 0
 
-
+" --------------------------------------------------
+" ----    Plug 'pangloss/vim-javascript'
+" --------------------------------------------------
 " Support to javascript
 let javascript_enable_domhtmlcss = 1
 " support for Flow and its types
 let g:javascript_plugin_flow = 1
 " recognize jsx syntax in a js file
 let g:jsx_ext_required = 0
-" ale combine eslint
+
+" --------------------------------------------------
+" ----    Plug 'w0rp/ale'
+" --------------------------------------------------
 let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_open_list = 0
 
-" ____________________________________________________
-" tweak search and replace
-" Add fzf into vim runtime path
-
+" --------------------------------------------------
+" ----    Plug 'junegunn/fzf.vim'
+" --------------------------------------------------
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
-" ____________________________________________________
-" tweak markdown
-
+" --------------------------------------------------
+" ----    Plug 'plasticboy/vim-markdown'
+" --------------------------------------------------
 "" disable folding
 "let g:vim_markdown_folding_disabled = 1
 
@@ -251,13 +228,16 @@ let g:vim_markdown_new_list_item_indent = 2
 " do NOT require .md extensions for Markdown links
 let g:vim_markdown_no_extensions_in_markdown = 1
 
-" __________________________________________________
-" set UltiSnips
+" --------------------------------------------------
+" ----    Plug 'SirVer/ultisnips'
+" --------------------------------------------------
 "let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 
-" __________________________________________________
+" --------------------------------------------------
+" ----    Plug 'airblade/vim-rooter'
+" --------------------------------------------------
 " Change to file's directory (similar to autochdir).
 let g:rooter_change_directory_for_non_project_files = 'current'
 " To change directory for the current window only (:lcd)
@@ -265,6 +245,15 @@ let g:rooter_use_lcd = 1
 "To stop vim-rooter echoing the project directory
 let g:rooter_silent_chdir = 1
 
-source ~/.vim/plugins.vim
+" --------------------------------------------------
+" ----    Plug 'easymotion/vim-easymotion'
+" --------------------------------------------------
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+
 source ~/.vim/tags.vim
 source ~/.vim/themes.vim
