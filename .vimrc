@@ -203,6 +203,9 @@ let g:vim_markdown_emphasis_multiline = 0
 
 " enable conceal use Vim's standard conceal configuration
 set conceallevel=2
+" disable conceal regardless of 'conceallevel' setting
+let g:vim_markdown_conceal = 1
+
 " disable math conceal with LaTeX math syntax enabled
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1

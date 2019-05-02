@@ -98,7 +98,7 @@ let $GTAGSCONF = '/opt/local/share/gtags/gtags.conf'
 let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 
 " set exclude file list
-let g:gutentags_ctags_exclude = ['node_modules']
+let g:gutentags_ctags_exclude = ['node_modules', 'venv']
 " set exclude project roots
 let g:gutentags_exclude_project_root = ['/usr/local', '/Users/linyang', 'Users/Lin']
 
