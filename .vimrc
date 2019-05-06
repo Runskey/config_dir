@@ -44,7 +44,6 @@ autocmd FileType py set textwidth=79
 
 set viminfo='10,\"100,:20,%,n~/.viminfo   "Restore cursor to file position in previous editing session
 set iskeyword+=_,$,@,%,#,-            "don't return with words containing these characters
-set linespace=1
 set wildmenu                          "Turn on Wild menu
 set backspace=indent,eol,start        "Set backspace
 set whichwrap+=<,>,h,l                "Bbackspace and cursor keys wrap to

@@ -1,6 +1,7 @@
 "set cursorline                        "highlight current line
 "hi CursorLine term=bold cterm=bold guibg=Grey40
 set guioptions=
+set linespace=0
 
 "" tweak spacegray color scheme
 "let g:spacegray_underline_search = 0
@@ -31,7 +32,7 @@ if has("gui_running")
   endif
 
   if has("mac")
-    set guifont=InputMonoNarrow:h14
+    set guifont=InputMonoNarrow-Light:h14
   else
     set guifont=Consolas\ 10
   endif
