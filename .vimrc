@@ -154,6 +154,8 @@ let g:cpp_class_scope_highlight=1
 " --------------------------------------------------
 " highlight conceal color with colorscheme
 let g:indentLine_setColors = 0
+" resolve the conflict with vim-markdown
+let g:indentLine_concealcursor = ''
 
 " --------------------------------------------------
 " ----    Plug 'pangloss/vim-javascript'
@@ -202,9 +204,10 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_emphasis_multiline = 0
 
 " enable conceal use Vim's standard conceal configuration
+set concealcursor="nc"
 set conceallevel=2
 " disable conceal regardless of 'conceallevel' setting
-let g:vim_markdown_conceal = 1
+"let g:vim_markdown_conceal = 0
 
 " disable math conceal with LaTeX math syntax enabled
 let g:tex_conceal = ""
