@@ -55,6 +55,8 @@ alias tonode3="ssh -Y ubuntu@node3"
 alias tonode4="ssh -Y ubuntu@node4"
 alias tonode5="ssh -Y ubuntu@node5"
 
+alias toainode="ssh -Y ubuntu@ainode"
+
 # Intel work
 alias ilab='ssh -Y lyang3@10.239.20.120'
 alias liaohe='ssh -Y liny@172.16.126.60'

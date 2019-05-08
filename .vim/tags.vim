@@ -108,7 +108,7 @@ let g:gutentags_ctags_tagfile = '.tags'
 " 同时开启 ctags 和 gtags 支持：
 let g:gutentags_modules = []
 if executable('ctags')
-	let g:gutentags_modules += ['ctags']
+  let g:gutentags_modules += ['ctags']
 endif
 if executable('gtags-cscope') && executable('gtags')
 	let g:gutentags_modules += ['gtags_cscope']
@@ -141,6 +141,8 @@ let g:gutentags_define_advanced_commands = 1
 
 " generate a file list for tags
 "let g:gutentags_file_list_command = 'find . -type f -name *.c -o -type f -name *.h'
+
+let g:gen_tags#verbose = 1
 
 " disable default keymaps of gutentags_plus
 let g:gutentags_plus_nomap = 1
