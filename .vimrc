@@ -95,6 +95,20 @@ set laststatus=2                      "always show status line
 set statusline=%F%m%r%h%w\ [%{&ff}][%Y]%=[%l,%v][%p%%]\ %{strftime(\"%d/%b/%y\ %H:%M\")}  " format the status line
 
 " --------------------------------------------------
+" ----    Status line Configuration Example
+" --------------------------------------------------
+let g:netrw_banner=0
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+,\(^\|\s\s\)ntuser\.\S\+'
+autocmd FileType netrw set nolist
+"0:thin, 1:long, 2:wide, 3:tree
+let g:netrw_liststyle = 3
+""open the file in:
+""1:horizontal split, 2:vertical split, 3:new tab, 4:previous window
+"let g:netrw_browse_split = 4
+""sets the width to 25% of the page
+"let g:netrw_winsize = 25
+
+" --------------------------------------------------
 " ----    Plug 'junegunn/vim-plug'
 " --------------------------------------------------
 if empty(glob('~/.vim/autoload/plug.vim'))

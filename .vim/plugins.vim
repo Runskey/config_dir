@@ -17,7 +17,7 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/STL-Syntax', { 'for': ['h', 'cpp', 'cc']}
@@ -33,7 +33,6 @@ Plug 'mxw/vim-jsx', { 'for': ['js', 'jsx', 'json'] }
 Plug 'elzr/vim-json', { 'for': ['js', 'jsx', 'json'] }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'BurntSushi/ripgrep'
 Plug 'wincent/ferret'
 Plug 'airblade/vim-rooter'
 Plug 'gregsexton/Atom'
