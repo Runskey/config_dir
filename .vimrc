@@ -183,6 +183,17 @@ nnoremap <silent> <Leader>b :Buffers<CR>
 " --------------------------------------------------
 " ----    Plug 'plasticboy/vim-markdown'
 " --------------------------------------------------
+
+" Cheatsheet of fold
+" zc  折叠
+" zC  对所在范围内所有嵌套的折叠点进行折叠
+" zo  展开折叠
+" zO  对所在范围内所有嵌套的折叠点展开
+" [z  到当前打开的折叠的开始处。
+" ]z  到当前打开的折叠的末尾处。
+" zj  向下移动。到达下一个折叠的开始处。关闭的折叠也被计入。
+" zk  向上移动到前一折叠的结束处。关闭的折叠也被计入。
+
 "" disable folding
 "let g:vim_markdown_folding_disabled = 1
 
