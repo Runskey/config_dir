@@ -224,6 +224,7 @@ let g:vim_markdown_folding_level = 6
 
 " allow for the TOC window to auto-fit
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_toc_maxwidth = 24
 
 " text emphasis restriction to single-lines
 let g:vim_markdown_emphasis_multiline = 0
