@@ -142,12 +142,12 @@ nmap <Leader>N <Plug>MarkAllClear
 " --------------------------------------------------
 " ----    Plug 'scrooloose/nerdtree'
 " --------------------------------------------------
-nnoremap <Leader>t :NERDTreeToggle<CR>
-let g:NERDTreeDirArrows=0
-let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-let g:NERDTreeShowBookmarks=1
+"nnoremap <Leader>t :NERDTreeToggle<CR>
+"let g:NERDTreeDirArrows=0
+"let g:NERDTreeChDirMode=2
+"let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+"let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+"let g:NERDTreeShowBookmarks=1
 
 " --------------------------------------------------
 " ----    Plug 'chrisbra/NrrwRgn'
