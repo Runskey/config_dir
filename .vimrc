@@ -58,6 +58,7 @@ set cmdheight=1                       "The commandbar is 2 high
 set fillchars=vert:\ ,stl:\ ,stlnc:\  "show space at split line
 set showmatch                         "show matching bracets
 set matchtime=5                       "How many tenths of a second to blink
+set so=999                            "keep current line in the middle of screen
 
 set guitablabel=%t
 set fileformat=unix
