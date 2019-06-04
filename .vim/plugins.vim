@@ -26,6 +26,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'tomlion/vim-solidity'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown', { 'for': 'md' }
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'md' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx', 'json'] }
@@ -46,6 +47,5 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'rakr/vim-one'
 Plug 'benekastah/neomake', Cond(has('nvim'))
-Plug 'majutsushi/tagbar'
 
 call plug#end()

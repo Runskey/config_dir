@@ -58,7 +58,7 @@ set cmdheight=1                       "The commandbar is 2 high
 set fillchars=vert:\ ,stl:\ ,stlnc:\  "show space at split line
 set showmatch                         "show matching bracets
 set matchtime=5                       "How many tenths of a second to blink
-set so=999                            "keep current line in the middle of screen
+"set so=999                            "keep current line in the middle of screen
 
 set guitablabel=%t
 set fileformat=unix
@@ -225,6 +225,7 @@ let g:vim_markdown_folding_level = 6
 " allow for the TOC window to auto-fit
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_toc_maxwidth = 24
+nnoremap <leader>tb :Toc<CR>
 
 " text emphasis restriction to single-lines
 let g:vim_markdown_emphasis_multiline = 0
@@ -280,6 +281,14 @@ map <Leader><leader>h <Plug>(easymotion-linebackward)
 map <Leader><Leader>j <Plug>(easymotion-j)
 map <Leader><Leader>k <Plug>(easymotion-k)
 map <Leader><leader>l <Plug>(easymotion-lineforward)
+
+" --------------------------------------------------
+" ----    Plug 'mzlogin/vim-markdown-toc'
+" --------------------------------------------------
+let g:vmt_auto_update_on_save = 1
+let g:vmt_list_item_char = '-'
+let g:vmt_cycle_list_item_markers = 0
+let g:vmt_include_headings_before = 0
 
 source ~/.vim/tags.vim
 source ~/.vim/themes.vim

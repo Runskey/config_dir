@@ -160,13 +160,13 @@ noremap <silent> <leader>ga :GscopeFind a <C-R><C-W><cr>
 " --------------------------------------------------
 " ----    tagbar
 " --------------------------------------------------
-nnoremap <leader>tb :TagbarToggle<CR>
-let g:tagbar_width = 24
-let g:tagbar_left = 1
-let g:tagbar_type_markdown = {
-        \ 'ctagstype' : 'markdown',
-        \ 'kinds' : [
-                \ 'h:headings',
-        \ ],
-    \ 'sort' : 0
-\ }
+"nnoremap <leader>tb :TagbarToggle<CR>
+"let g:tagbar_width = 24
+"let g:tagbar_left = 1
+"let g:tagbar_type_markdown = {
+        "\ 'ctagstype' : 'markdown',
+        "\ 'kinds' : [
+                "\ 'h:headings',
+        "\ ],
+    "\ 'sort' : 0
+"\ }
