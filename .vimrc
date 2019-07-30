@@ -72,7 +72,7 @@ let g:mapleader = ","
 map <leader>e :e! ~/.vimrc<cr>
 nnoremap <leader>w :w<cr>
 autocmd! BufWritePost .vimrc source ~/.vimrc    "When .vimrc is edited, reload it
-"autocmd! BufWritePost plugins.vim source ~/.vim/plugins.vim "When plugins.vim is edited, reload it
+autocmd! BufWritePost plugins.vim source ~/.vim/plugins.vim "When plugins.vim is edited, reload it
 
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 map <C-j> <ESC>:cn<CR>

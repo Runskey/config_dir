@@ -78,8 +78,8 @@ alias ueserver="ssh -Y root@10.240.224.236"
 
 alias polaris="ssh -Y intel@172.27.4.10"
 
-alias get_chain_log_main="scp -r ubuntu@ainode:/var/www/html/ACG/main/acg_chain.log ./acg_chain_main.log"
-alias get_chain_log_admin="scp -r ubuntu@ainode:/var/www/html/ACG/AdminPage/acg_chain.log ./acg_chain_admin.log"
+alias get_chain_log_main="scp -r ubuntu@uatnode:/var/www/html/ACG/main/acg_chain.log ./acg_chain_main.log"
+alias get_chain_log_admin="scp -r ubuntu@uatnode:/var/www/html/ACG/AdminPage/acg_chain.log ./acg_chain_admin.log"
 
 
 
