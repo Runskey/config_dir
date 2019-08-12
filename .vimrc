@@ -290,5 +290,10 @@ let g:vmt_list_item_char = '-'
 let g:vmt_cycle_list_item_markers = 0
 let g:vmt_include_headings_before = 0
 
+" --------------------------------------------------
+" ----    Plug 'liuchengxu/eleline.vim'
+" --------------------------------------------------
+"let g:eleline_slim = 1
+
 source ~/.vim/tags.vim
 source ~/.vim/themes.vim
