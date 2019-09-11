@@ -39,7 +39,7 @@ filetype on                           "detect file type
 filetype plugin on                    "Enable filetype plugin
 filetype indent on                    " load special indent format for file types
 autocmd BufRead,BufNewFile *.adoc set filetype=asciidoc
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab smarttab
+autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=0 expandtab smarttab
 autocmd FileType py set textwidth=79
 
 set viminfo='10,\"100,:20,%,n~/.viminfo   "Restore cursor to file position in previous editing session
@@ -143,12 +143,13 @@ nmap <Leader>N <Plug>MarkAllClear
 " --------------------------------------------------
 " ----    Plug 'scrooloose/nerdtree'
 " --------------------------------------------------
-"nnoremap <Leader>t :NERDTreeToggle<CR>
-"let g:NERDTreeDirArrows=0
-"let g:NERDTreeChDirMode=2
-"let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
-"let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
-"let g:NERDTreeShowBookmarks=1
+nnoremap <Leader>t :NERDTreeToggle<CR>
+let g:NERDTreeDirArrows=0
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\~$', '\.pyc$', '\.swp$']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$',  '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:NERDTreeWinSize=24
 
 " --------------------------------------------------
 " ----    Plug 'chrisbra/NrrwRgn'
