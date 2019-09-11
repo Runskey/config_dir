@@ -17,7 +17,7 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-mark'
 Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
-"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/STL-Syntax', { 'for': ['h', 'cpp', 'cc']}
@@ -47,5 +47,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'rakr/vim-one'
 Plug 'benekastah/neomake', Cond(has('nvim'))
+"Plug 'liuchengxu/eleline.vim'
 
 call plug#end()
