@@ -48,5 +48,6 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'rakr/vim-one'
 Plug 'benekastah/neomake', Cond(has('nvim'))
 "Plug 'liuchengxu/eleline.vim'
+Plug 'takac/vim-hardtime'
 
 call plug#end()

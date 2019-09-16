@@ -298,3 +298,11 @@ let g:vmt_include_headings_before = 0
 
 source ~/.vim/tags.vim
 source ~/.vim/themes.vim
+
+" --------------------------------------------------
+" ----    Plug 'liuchengxu/eleline.vim'
+" --------------------------------------------------
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
+let g:hardtime_ignore_quickfix = 1
+let g:hardtime_maxcount = 3
