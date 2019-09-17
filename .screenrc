@@ -12,4 +12,7 @@ attrcolor       b ".I"
 
 hardstatus      on
 hardstatus      alwayslastline
-hardstatus      string '%{= kw}[%{r}%c%{w}]%{w}[ %{= kb}%H%{= kw} ][%-w%{= BW}%50>%n %t%{-}%+w%<]%{w}'
+#hardstatus      string '%{= kw}[%{r}%c%{w}]%{w}[ %{= kb}%H%{= kw} ][%-w%{= BW}%50>%n %t%{-}%+w%<]%{w}'
+hardstatus      string "%{.bW}%-w%{.rY}%n %t%{-}%+w %=%{..G} %c:%s "  
+
+encoding        UTF-8
