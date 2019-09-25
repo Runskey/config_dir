@@ -22,7 +22,7 @@ alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 
-#alias ls='ls --color=tty'                 # classify files in colour
+alias ls='ls --color=tty'                 # classify files in colour
 alias ll='ls -l'                              # long list
 # special alias for ls and ll is not needed on mac since the standard GNU toolset is used from macport
 # # Some shortcuts for different directory listings

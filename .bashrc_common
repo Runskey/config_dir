@@ -223,10 +223,6 @@ elif [[ $myconfig_platform == 'mac' ]]; then
 
   set -o vi
 
-  if [ -d "/opt/local/libexec/gnubin" ] ; then
-    export PATH=/opt/local/libexec/gnubin:$PATH
-  fi
-
   if [ -d "$HOME/Library/Python/3.6/bin" ] ; then
     export PATH=$HOME/Library/Python/3.6/bin:$PATH
   fi
@@ -237,6 +233,10 @@ elif [[ $myconfig_platform == 'mac' ]]; then
 
   if [ -f "/Users/Lin/.vim/cscope.out" ] ; then
     export CSCOPE_DB="/Users/Lin/.vim/cscope.out"
+  fi
+
+  if [ -d "/opt/local/libexec/gnubin" ] ; then
+    export PATH=/opt/local/libexec/gnubin:$PATH
   fi
 
   export HDF5_USE_FILE_LOCKING="FALSE"
