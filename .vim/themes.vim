@@ -33,7 +33,7 @@ if has("gui_running")
 
   if has("mac")
     "set guifont=InputMonoNarrow-Light:h14
-    set guifont=Menlo-Regular:h14
+    set guifont=FiraCode-Regular:h14
   else
     set guifont=Consolas\ 10
   endif
