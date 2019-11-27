@@ -40,13 +40,16 @@ if has("gui_running")
   " set theme according to system time
   if strftime("%H") < 7
     set background=dark
-    colorscheme gruvbox
+    "colorscheme gruvbox
+    colorscheme default
   elseif strftime("%H") < 15
     set background=light
-    colorscheme github
+    "colorscheme github
+    colorscheme default
   elseif strftime("%H") < 19
     set background=light
-    colorscheme gruvbox
+    "colorscheme gruvbox
+    colorscheme default
   else
     set background=dark
     colorscheme gruvbox
