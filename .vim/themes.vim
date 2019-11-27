@@ -32,7 +32,8 @@ if has("gui_running")
   endif
 
   if has("mac")
-    set guifont=InputMonoNarrow-Light:h14
+    "set guifont=InputMonoNarrow-Light:h14
+    set guifont=FiraCode-Regular:h14
   else
     set guifont=Consolas\ 10
   endif
@@ -40,16 +41,13 @@ if has("gui_running")
   " set theme according to system time
   if strftime("%H") < 7
     set background=dark
-    "colorscheme gruvbox
-    colorscheme default
-  elseif strftime("%H") < 15
+    colorscheme one
+  elseif strftime("%H") < 14
     set background=light
-    "colorscheme github
-    colorscheme default
-  elseif strftime("%H") < 19
+    colorscheme github
+  elseif strftime("%H") < 18
     set background=light
-    "colorscheme gruvbox
-    colorscheme default
+    colorscheme one
   else
     set background=dark
     colorscheme gruvbox
