@@ -214,7 +214,6 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
   export LC_NUMERIC="C"
   export DISPLAY=":0.0"
 
-  #export EDITOR=/usr/bin/vim
   export EDITOR=vim
 
   export CSCOPE_DB="/home/lyang3/.vim/cscope.out"
@@ -241,6 +240,8 @@ elif [[ $myconfig_platform == 'mac' ]]; then
 
   export HDF5_USE_FILE_LOCKING="FALSE"
   #eval `dircolors ~/.dircolors/dircolors.ansi-dark`
+
+  export EDITOR=vim
 
 elif [[ $myconfig_platform == 'linux' ]]; then
   # raspberry pi 3B+ cross compiling setup
