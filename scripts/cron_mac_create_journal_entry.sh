@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JOURNAL_PATH='/Users/Lin/Documents/misc/writing/journal'
+JOURNAL_PATH='/Users/Lin/Documents/writing/journal'
 JOURNAL_NAME=`date +"%Y%m%d"`'.md'
 
 JOURNAL_FILE=$JOURNAL_PATH/$JOURNAL_NAME

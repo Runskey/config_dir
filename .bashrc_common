@@ -220,11 +220,23 @@ if [[ $myconfig_platform == 'cygwin' ]]; then
 
 elif [[ $myconfig_platform == 'mac' ]]; then
 
+  # Refer to: https://stackoverflow.com/questions/50168647/multiprocessing-causes-python-to-crash-and-gives-an-error-may-have-been-in-progr
+  # allow multithreading applications or scripts under security rules of Mac OS newer than High Sierra
+  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
   set -o vi
 
   if [ -d "$HOME/Library/Python/3.6/bin" ] ; then
     export PATH=$HOME/Library/Python/3.6/bin:$PATH
   fi
+
+  if [ -d "/usr/local/mysql" ] ; then
+    export PATH=/usr/local/mysql/bin:$PATH
+    export CPPFLAGS="-I/usr/local/mysql/include/"
+    export LDFLAGS="-L/usr/local/mysql/lib/"
+    #export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+  fi
+
 
   if [ -d "$HOME/Projects/go-ethereum/build/bin" ] ; then
     export PATH=$HOME/Projects/go-ethereum/build/bin:$PATH
@@ -238,10 +250,20 @@ elif [[ $myconfig_platform == 'mac' ]]; then
     export PATH=/opt/local/libexec/gnubin:$PATH
   fi
 
+  if [ -d "/Users/Lin/workspace/hyperledger_test/fabric_v2.0_samples/fabric-samples/bin" ] ; then
+    export PATH=/Users/Lin/workspace/hyperledger_test/fabric_v2.0_samples/fabric-samples/bin:$PATH
+  fi
+
   export HDF5_USE_FILE_LOCKING="FALSE"
   #eval `dircolors ~/.dircolors/dircolors.ansi-dark`
 
   export EDITOR=vim
+
+  [ -f ~/.iterm2_shell_integration.bash ] && source ~/.iterm2_shell_integration.bash
+  # bash: Place this in .bashrc.
+  function iterm2_print_user_vars() {
+    iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  }
 
 elif [[ $myconfig_platform == 'linux' ]]; then
   # raspberry pi 3B+ cross compiling setup
@@ -253,3 +275,5 @@ else
   echo "no special configuration for $myconfig_platform"
 
 fi
+
+export GREN_GITHUB_TOKEN=71f2c84aa945ba80e34f86456f7afdf63fb12995

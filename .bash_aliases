@@ -81,6 +81,8 @@ alias polaris="ssh -Y intel@172.27.4.10"
 alias get_chain_log_main="scp -r ubuntu@uatnode:/var/www/html/ACG/main/acg_chain.log ./acg_chain_main.log"
 alias get_chain_log_admin="scp -r ubuntu@uatnode:/var/www/html/ACG/AdminPage/acg_chain.log ./acg_chain_admin.log"
 
-
-
+if [[ $myconfig_platform == 'mac' ]]; then
+  alias vim='mvim -v'
+  alias yt_audio='youtube-dl -x --audio-format mp3 --audio-quality 6 '
+fi
 
