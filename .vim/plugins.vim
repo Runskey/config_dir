@@ -33,25 +33,21 @@ Plug 'pangloss/vim-javascript', { 'for': ['js', 'jsx', 'json'] }
 Plug 'mxw/vim-jsx', { 'for': ['js', 'jsx', 'json'] } 
 Plug 'elzr/vim-json', { 'for': ['js', 'jsx', 'json'] }
 Plug 'junegunn/fzf'
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'wincent/ferret'
 Plug 'airblade/vim-rooter'
-Plug 'rafi/awesome-vim-colorschemes'
-"Plug 'gregsexton/Atom'
-"Plug 'gregsexton/Gravity'
-"Plug 'gregsexton/Muon'
-"Plug 'cormacrelf/vim-colors-github'
-"Plug 'ajh17/Spacegray.vim'
-"Plug 'morhetz/gruvbox'
+Plug 'gregsexton/Atom'
+Plug 'gregsexton/Gravity'
+Plug 'gregsexton/Muon'
+Plug 'cormacrelf/vim-colors-github'
+Plug 'ajh17/Spacegray.vim'
+Plug 'morhetz/gruvbox'
 Plug 'airblade/vim-gitgutter'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
-"Plug 'rakr/vim-one'
+Plug 'rakr/vim-one'
 Plug 'benekastah/neomake', Cond(has('nvim'))
 "Plug 'liuchengxu/eleline.vim'
 "Plug 'takac/vim-hardtime'
-Plug 'Raimondi/delimitMate'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()

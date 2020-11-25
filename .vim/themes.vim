@@ -26,10 +26,6 @@ let g:gruvbox_improved_warnings = '1'
 " tweak one color scheme
 let g:one_allow_italics = 1
 
-if has("mac")
-  set macligatures
-endif
-
 if has("gui_running")
   if (has("termguicolors"))
     set termguicolors
@@ -37,8 +33,7 @@ if has("gui_running")
 
   if has("mac")
     "set guifont=InputMonoNarrow-Light:h14
-    set guifont=JetBrainsMono-Regular:h14
-    "set transp=8
+    set guifont=FiraCode-Regular:h14
   else
     set guifont=Consolas\ 10
   endif

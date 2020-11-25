@@ -60,7 +60,6 @@ set showmatch                         "show matching bracets
 set matchtime=5                       "How many tenths of a second to blink
 "set so=999                            "keep current line in the middle of screen
 
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set guitablabel=%t
 set fileformat=unix
 set fileformats=unix,dos,mac          "Favorite filetypes
@@ -191,8 +190,6 @@ let g:ale_sign_column_always = 1
 let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_save = 1
 let g:ale_open_list = 0
-let g:ale_sign_error = 'x'
-let g:ale_sign_warning = '!'
 
 " --------------------------------------------------
 " ----    Plug 'junegunn/fzf.vim'
@@ -273,7 +270,7 @@ let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 " Change to file's directory (similar to autochdir).
 let g:rooter_change_directory_for_non_project_files = 'current'
 " To change directory for the current window only (:lcd)
-let g:rooter_cd_cmd = 'lcd'
+let g:rooter_cd_cmd = "lcd"
 "To stop vim-rooter echoing the project directory
 let g:rooter_silent_chdir = 1
 
@@ -310,12 +307,3 @@ let g:hardtime_default_on = 1
 let g:hardtime_showmsg = 1
 let g:hardtime_ignore_quickfix = 1
 let g:hardtime_maxcount = 3
-
-
-" --------------------------------------------------
-" ----    Plug 'airline'
-" --------------------------------------------------
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16'
