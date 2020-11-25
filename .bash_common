@@ -44,6 +44,9 @@ if [ -d "$HOME/scripts" ] ; then
 fi
 
 # Shell Options
+#export PS1='\D{%H:%M} \u:\W \$ '
+#export PS1="\\W:[\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)]\$ "
+export PS1="\W \e[0;36m\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\e[m\$ "
 #
 # See man bash for more options...
 #
@@ -226,17 +229,12 @@ elif [[ $myconfig_platform == 'mac' ]]; then
 
   set -o vi
 
-  if [ -d "$HOME/Library/Python/3.6/bin" ] ; then
-    export PATH=$HOME/Library/Python/3.6/bin:$PATH
-  fi
-
   if [ -d "/usr/local/mysql" ] ; then
     export PATH=/usr/local/mysql/bin:$PATH
     export CPPFLAGS="-I/usr/local/mysql/include/"
     export LDFLAGS="-L/usr/local/mysql/lib/"
     #export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
   fi
-
 
   if [ -d "$HOME/Projects/go-ethereum/build/bin" ] ; then
     export PATH=$HOME/Projects/go-ethereum/build/bin:$PATH
